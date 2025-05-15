@@ -17,7 +17,7 @@
 </picture><br/>
 Меню загрузки/сохранений.<br/>
 <picture>
- <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/save_menu.png" alt="qr"/>
+ <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/save_menu.png" alt="qr"/>
 </picture><br/>
 Игровое меню.<br/>
 <picture>
