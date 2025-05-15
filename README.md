@@ -31,7 +31,9 @@
 Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока.
 Урон и здоровье игрока и противников, анимация получения урона, анимация удара игрока.
 Анимации движения, реализовано через **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**.
+
 Бесплатные ассеты нашел на:
+
 https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack
 https://opengameart.org/content/outdoor-tileset-0
 https://opengameart.org/content/cyberpunk-noir-tileset
