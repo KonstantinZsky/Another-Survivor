@@ -15,7 +15,7 @@
 </picture>
 Игровое меню.
 <picture>
- <img width="200px" src="game menu.png" alt="qr"/>
+ <img width="200px" src="[game_menu.png](https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_menu.png)" alt="qr"/>
 </picture>
 ### Локализация
 В опциях можно выбрать между русским и английским языком. Все элементы интерфейса будут переведены, реализовано при помощи **gettext**.
@@ -28,10 +28,8 @@
  <img width="200px" src="minimap.png" alt="qr"/>
 </picture>
 ### Базовые игровые механики
-Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока.
-Урон и здоровье игрока и противников, анимация получения урона, анимация удара игрока.
-Анимации движения, реализовано через **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**.<br/>
-Бесплатные ассеты нашел на:<br/>
+Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока. Урон и здоровье игрока и противников, анимация получения урона, анимация удара игрока. Анимации движения, реализована через **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**.<br/>
+Использованные бесплатные ассеты:<br/>
 https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack<br/>
 https://opengameart.org/content/outdoor-tileset-0<br/>
 https://opengameart.org/content/cyberpunk-noir-tileset<br/>
