@@ -15,7 +15,7 @@
 </picture>
 Игровое меню.
 <picture>
- <img width="200px" src="[game_menu.png](https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_menu.png)" alt="qr"/>
+ <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_menu.png" alt="qr"/>
 </picture>
 ### Локализация
 В опциях можно выбрать между русским и английским языком. Все элементы интерфейса будут переведены, реализовано при помощи **gettext**.
