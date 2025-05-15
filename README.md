@@ -30,14 +30,12 @@
 ### Базовые игровые механики
 Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока.
 Урон и здоровье игрока и противников, анимация получения урона, анимация удара игрока.
-Анимации движения, реализовано через **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**.
-
-Бесплатные ассеты нашел на:
-
-https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack
-https://opengameart.org/content/outdoor-tileset-0
-https://opengameart.org/content/cyberpunk-noir-tileset
-https://itch.io/queue/c/733269/godot-pixel-fonts?game_id=718254
+Анимации движения, реализовано через **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**.<br/>
+Бесплатные ассеты нашел на:<br/>
+https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack<br/>
+https://opengameart.org/content/outdoor-tileset-0<br/>
+https://opengameart.org/content/cyberpunk-noir-tileset<br/>
+https://itch.io/queue/c/733269/godot-pixel-fonts?game_id=718254<br/>
 ## TO DO
 - Смерть игрока, конец игры.
 - Добавить графические элементы на игровое поле с использованием шейдеров и анимации Polygon2D при помощи Skeleton2D. Я это уже делал в другом своем проекте, осталось перенести и адаптировать.
