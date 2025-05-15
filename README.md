@@ -7,15 +7,18 @@
 ### Меню
 Главное меню с опциями, загрузкой сохраненной игровой сессии, началом новой сесии, выбором уровня.<br/>
 <picture>
- <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/main_menu.png" alt="qr"/>
+ <img hight="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/main_menu.png" alt="qr"/>
 </picture>
 <picture>
- <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/options_menu.png" alt="qr"/>
+ <img hight="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/options_menu.png" alt="qr"/>
 </picture>
+<picture>
+ <img hight="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/level_menu.png" alt="qr"/>
+</picture><br/>
 Меню загрузки/сохранений.<br/>
 <picture>
  <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/save_menu.png" alt="qr"/>
-</picture>
+</picture><br/>
 Игровое меню.<br/>
 <picture>
  <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_menu.png" alt="qr"/>
@@ -28,7 +31,7 @@
 В играх типа "Vampire Survivors" миникарты обычно нет, но зато она есть в огромном количестве других игр, поэтому я ее реализовал.
 В режиме паузы можно двигать камеру (в том числе мышкой по миникарте), рамка камеры отображается на миникарте как и противники и игрок. Так же отображаются пропорции игрового поля. 
 <picture>
- <img width="200px" src="minimap.png" alt="qr"/>
+ <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/minimap.png" alt="qr"/>
 </picture>
 ### Базовые игровые механики
 Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока. Урон и здоровье игрока и противников, анимация получения урона, анимация удара игрока. Анимации движения, реализована через **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**.<br/>
