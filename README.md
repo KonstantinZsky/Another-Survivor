@@ -10,10 +10,10 @@
  <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/main_menu.png" alt="qr"/>
 </picture>
 <picture>
- <img width="400px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/options_menu.png" alt="qr"/>
+ <img width="500px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/options_menu.png" alt="qr"/>
 </picture>
 <picture>
- <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/level_menu.png" alt="qr"/>
+ <img width="500px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/level_menu.png" alt="qr"/>
 </picture><br/>
 Меню загрузки/сохранений.<br/>
 <picture>
