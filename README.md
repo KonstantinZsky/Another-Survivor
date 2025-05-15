@@ -5,15 +5,18 @@
 В качестве примера мной выбрана игра типа "Vampire Survivors". На текущий момент проект не более чем демо. Планирую улучшать и расширять функционал.
 ## Реализованный функционал
 ### Меню
-Главное меню с опциями, загрузкой сохраненной игровой сессии, началом новой сесии, выбором уровня.
+Главное меню с опциями, загрузкой сохраненной игровой сессии, началом новой сесии, выбором уровня.<br/>
 <picture>
- <img width="200px" src="main_menu.png" alt="qr"/>
+ <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/main_menu.png" alt="qr"/>
 </picture>
-Меню загрузки/сохранений.
 <picture>
- <img width="200px" src="save_menu.png" alt="qr"/>
+ <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/options_menu.png" alt="qr"/>
 </picture>
-Игровое меню.
+Меню загрузки/сохранений.<br/>
+<picture>
+ <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/save_menu.png" alt="qr"/>
+</picture>
+Игровое меню.<br/>
 <picture>
  <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_menu.png" alt="qr"/>
 </picture>
