@@ -1,0 +1,507 @@
+[gd_scene load_steps=6 format=3 uid="uid://knqshysxosah"]
+
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="1_7mycd"]
+[ext_resource type="Texture2D" uid="uid://dgjrkk4f4v0y6" path="res://Assets/Pictures/MenuBackground.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bmfa1k8lc8g6l" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="FontFile" uid="uid://bla70pajeuvwo" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="2_0xm2m"]
+[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="3_h2yge"]
+
+[node name="Control_Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7mycd")
+script = ExtResource("1_lquwl")
+
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer_MainMenu" type="CanvasLayer" parent="."]
+
+[node name="ColorRect_Panel" type="ColorRect" parent="CanvasLayer_MainMenu"]
+modulate = Color(1, 1, 1, 0.884)
+anchors_preset = -1
+anchor_left = 0.365
+anchor_top = 0.258
+anchor_right = 0.635
+anchor_bottom = 0.827
+offset_left = -0.800049
+offset_top = 0.359985
+offset_right = 0.799927
+offset_bottom = -0.160034
+theme = ExtResource("1_7mycd")
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer_MenuButtons" type="VBoxContainer" parent="CanvasLayer_MainMenu/ColorRect_Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.173
+anchor_top = 0.119
+anchor_right = 0.827
+anchor_bottom = 0.896
+offset_left = 0.0399857
+offset_top = -0.0660019
+offset_right = -0.0400696
+offset_bottom = -0.144043
+theme = ExtResource("1_7mycd")
+metadata/_edit_lock_ = true
+
+[node name="Button_NewGame" type="Button" parent="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 50
+text = "New game"
+
+[node name="Button_Load" type="Button" parent="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 50
+text = "Load"
+
+[node name="Button_Options" type="Button" parent="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Button_Quit" type="Button" parent="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Label_MenuTitle" type="Label" parent="CanvasLayer_MainMenu/ColorRect_Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.286
+anchor_top = 0.161
+anchor_right = 0.714
+anchor_bottom = 0.283
+offset_left = -298.72
+offset_top = -203.854
+offset_right = 295.72
+offset_bottom = -191.762
+theme = ExtResource("1_7mycd")
+theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_font_sizes/font_size = 86
+text = "Another Survivor"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer_Options" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="ColorRect_Options" type="ColorRect" parent="CanvasLayer_Options"]
+modulate = Color(1, 1, 1, 0.884)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7mycd")
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect_Video" type="ColorRect" parent="CanvasLayer_Options/ColorRect_Options"]
+self_modulate = Color(1, 1, 1, 0.028)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.219
+anchor_top = 0.259
+anchor_right = 0.448
+anchor_bottom = 0.759
+offset_left = -0.480011
+offset_top = 0.279999
+offset_right = -0.160034
+offset_bottom = 0.279907
+theme = ExtResource("1_7mycd")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.037
+anchor_right = 0.886
+anchor_bottom = 0.185
+offset_left = -0.160004
+offset_top = 0.0200005
+offset_right = 0.159973
+offset_bottom = 0.0999985
+theme = ExtResource("1_7mycd")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_font_sizes/font_size = 60
+text = "Video"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.185
+anchor_right = 0.955
+anchor_bottom = 0.963
+offset_left = 20.0
+offset_top = 0.0999985
+offset_right = -0.200012
+offset_bottom = -0.0200195
+theme = ExtResource("1_7mycd")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer_Resolution" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 30
+text = "Resolution"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton_Res" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+
+[node name="HBoxContainer_TextureFilter" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 30
+text = "Filtration"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton_tex" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Nearest"
+popup/item_0/id = 0
+popup/item_1/text = "Linear"
+popup/item_1/id = 1
+
+[node name="CheckBox_FullScreen" type="CheckBox" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 30
+text = "Full screen"
+alignment = 1
+
+[node name="CheckBox_VSync" type="CheckBox" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 30
+text = "VSync"
+alignment = 1
+
+[node name="ColorRect_Game" type="ColorRect" parent="CanvasLayer_Options/ColorRect_Options"]
+self_modulate = Color(1, 1, 1, 0.028)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.219
+anchor_top = 0.259
+anchor_right = 0.448
+anchor_bottom = 0.759
+offset_left = 599.52
+offset_top = 0.279999
+offset_right = 599.84
+offset_bottom = 0.279907
+theme = ExtResource("1_7mycd")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Game"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.037
+anchor_right = 0.886
+anchor_bottom = 0.185
+offset_left = -0.160004
+offset_top = 0.0200005
+offset_right = 0.159973
+offset_bottom = 0.0999985
+theme = ExtResource("1_7mycd")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_font_sizes/font_size = 60
+text = "Game"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer_Language" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Game"]
+layout_mode = 2
+anchor_left = 0.045
+anchor_top = 0.185
+anchor_right = 1.0
+anchor_bottom = 0.38
+offset_left = 0.199999
+offset_top = 0.100014
+offset_right = -21.345
+offset_bottom = -0.200012
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 30
+text = "Language"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton_Lang" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Russian"
+popup/item_1/id = 1
+
+[node name="Label_Options" type="Label" parent="CanvasLayer_Options/ColorRect_Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.286
+anchor_top = 0.161
+anchor_right = 0.714
+anchor_bottom = 0.283
+offset_left = 0.880005
+offset_top = 0.11998
+offset_right = -0.880127
+offset_bottom = 0.359985
+theme = ExtResource("1_7mycd")
+theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_font_sizes/font_size = 86
+text = "Options"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button_Back" type="Button" parent="CanvasLayer_Options/ColorRect_Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.781
+anchor_top = 0.815
+anchor_right = 0.99
+anchor_bottom = 0.954
+offset_left = 0.47998
+offset_top = -0.200073
+offset_right = -0.800171
+offset_bottom = -0.320068
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 50
+text = "Back
+"
+metadata/_edit_lock_ = true
+
+[node name="Button_Save" type="Button" parent="CanvasLayer_Options/ColorRect_Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.815
+anchor_right = 0.219
+anchor_bottom = 0.954
+offset_left = 0.799999
+offset_top = -0.200073
+offset_right = -0.480011
+offset_bottom = -0.320068
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 50
+text = "Save
+"
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer_NewGame" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="ColorRect_Options" type="ColorRect" parent="CanvasLayer_NewGame"]
+modulate = Color(1, 1, 1, 0.884)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7mycd")
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect_Video" type="ColorRect" parent="CanvasLayer_NewGame/ColorRect_Options"]
+self_modulate = Color(1, 1, 1, 0.028)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.219
+anchor_top = 0.259
+anchor_right = 0.448
+anchor_bottom = 0.759
+offset_left = 239.52
+offset_top = 0.279999
+offset_right = 399.84
+offset_bottom = 0.279968
+theme = ExtResource("1_7mycd")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer_NewGame/ColorRect_Options/ColorRect_Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.037
+anchor_right = 0.886
+anchor_bottom = 0.185
+offset_left = -0.160004
+offset_top = 0.0200005
+offset_right = 0.159973
+offset_bottom = 0.0999985
+theme = ExtResource("1_7mycd")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_font_sizes/font_size = 60
+text = "Choose level"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer_NewGame/ColorRect_Options/ColorRect_Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.122
+anchor_top = 0.315
+anchor_right = 0.883
+anchor_bottom = 0.589
+offset_left = 1.8
+offset_top = -0.100021
+offset_right = -4.79999
+offset_bottom = 1.93997
+theme = ExtResource("1_7mycd")
+theme_override_font_sizes/font_size = 60
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "1 woods"
+popup/item_0/id = 0
+popup/item_1/text = "2 lab"
+popup/item_1/id = 1
+metadata/_edit_lock_ = true
+
+[node name="Label_Options" type="Label" parent="CanvasLayer_NewGame/ColorRect_Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.286
+anchor_top = 0.161
+anchor_right = 0.714
+anchor_bottom = 0.283
+offset_left = 0.880005
+offset_top = 0.11998
+offset_right = -0.880127
+offset_bottom = 0.359985
+theme = ExtResource("1_7mycd")
+theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_font_sizes/font_size = 86
+text = "New Game"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button_Back" type="Button" parent="CanvasLayer_NewGame/ColorRect_Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.781
+anchor_top = 0.815
+anchor_right = 0.99
+anchor_bottom = 0.954
+offset_left = 0.47998
+offset_top = -0.200073
+offset_right = -0.800171
+offset_bottom = -0.320068
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 50
+text = "Back
+"
+metadata/_edit_lock_ = true
+
+[node name="Button_Start" type="Button" parent="CanvasLayer_NewGame/ColorRect_Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.815
+anchor_right = 0.219
+anchor_bottom = 0.954
+offset_left = 0.799999
+offset_top = -0.200073
+offset_right = -0.480011
+offset_bottom = -0.320068
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 50
+text = "Start
+"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_NewGame" to="." method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Load" to="." method="_on_button_load_pressed"]
+[connection signal="pressed" from="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Options" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res" to="." method="_on_option_button_res_item_selected"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res" to="." method="_on_option_button_res_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res"]]
+[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex" to="." method="_on_option_button_tex_item_selected"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex" to="." method="_on_option_button_tex_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex"]]
+[connection signal="toggled" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_FullScreen" to="." method="_on_check_box_full_screen_toggled"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_FullScreen" to="." method="_on_check_box_full_screen_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_FullScreen"]]
+[connection signal="toggled" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_VSync" to="." method="_on_check_box_v_sync_toggled"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_VSync" to="." method="_on_check_box_v_sync_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_VSync"]]
+[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language/OptionButton_Lang" to="." method="_on_option_button_lang_item_selected"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language/OptionButton_Lang" to="." method="_on_option_button_lang_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language/OptionButton_Lang"]]
+[connection signal="pressed" from="CanvasLayer_Options/ColorRect_Options/Button_Back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer_Options/ColorRect_Options/Button_Save" to="." method="_on_button_save_pressed"]
+[connection signal="item_selected" from="CanvasLayer_NewGame/ColorRect_Options/ColorRect_Video/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="CanvasLayer_NewGame/ColorRect_Options/Button_Back" to="." method="_on_button_new_game_back_pressed"]
+[connection signal="pressed" from="CanvasLayer_NewGame/ColorRect_Options/Button_Start" to="." method="_on_button_start_pressed"]

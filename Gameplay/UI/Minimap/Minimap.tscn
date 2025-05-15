@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu3ray61esnns"]
+
+[ext_resource type="Script" uid="uid://cc3bniikph7sx" path="res://Gameplay/UI/Minimap/Minimap.gd" id="1_oqxv8"]
+
+[node name="Minimap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_oqxv8")
+
+[node name="ColorRect_BlackBack" type="ColorRect" parent="."]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect_Minimap" type="ColorRect" parent="ColorRect_BlackBack"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.323
+anchor_right = 0.695
+anchor_bottom = 1.0
+offset_left = 0.839966
+offset_right = 0.599854
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0.12549, 0.278431, 1)
+
+[node name="Polygon2D_CameraFrame" type="Polygon2D" parent="ColorRect_BlackBack/ColorRect_Minimap"]
+position = Vector2(100, 100)
+color = Color(0.521569, 0.8, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

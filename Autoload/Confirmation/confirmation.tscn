@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcghpvhrf8ec0"]
+
+[ext_resource type="FontFile" uid="uid://bla70pajeuvwo" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="1_cux40"]
+[ext_resource type="Script" uid="uid://dnn77tftouul3" path="res://Autoload/Confirmation/confirmation.gd" id="1_mkshq"]
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="2_korb8"]
+[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="2_mkshq"]
+
+[node name="Control_Confirmation" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mkshq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="ColorRect_BackGround" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.988235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_korb8")
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect_Video" type="ColorRect" parent="CanvasLayer/ColorRect_BackGround"]
+self_modulate = Color(1, 1, 1, 0.028)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24
+anchor_top = 0.259
+anchor_right = 0.76
+anchor_bottom = 0.815
+offset_left = -0.800018
+offset_top = 0.279999
+offset_right = 0.799927
+offset_bottom = -0.200073
+theme = ExtResource("2_korb8")
+metadata/_edit_lock_ = true
+
+[node name="Label_Header" type="Label" parent="CanvasLayer/ColorRect_BackGround/ColorRect_Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.037
+anchor_right = 0.886
+anchor_bottom = 0.15
+offset_top = -0.200001
+offset_right = -6.10352e-05
+theme = ExtResource("2_korb8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_cux40")
+theme_override_font_sizes/font_size = 60
+text = "Header
+"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label_Message" type="Label" parent="CanvasLayer/ColorRect_BackGround/ColorRect_Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.243
+anchor_right = 0.886
+anchor_bottom = 0.663
+offset_top = 0.199997
+offset_right = -6.10352e-05
+offset_bottom = 0.199982
+theme = ExtResource("2_korb8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_cux40")
+theme_override_font_sizes/font_size = 48
+text = "Message
+"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect_BackGround/ColorRect_Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.725
+anchor_right = 0.955
+anchor_bottom = 0.963
+offset_left = 20.0
+offset_right = -6.10352e-05
+offset_bottom = 0.199951
+theme = ExtResource("2_korb8")
+metadata/_edit_lock_ = true
+
+[node name="Button_Confirm" type="Button" parent="CanvasLayer/ColorRect_BackGround/ColorRect_Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_korb8")
+theme_override_fonts/font = ExtResource("2_mkshq")
+theme_override_font_sizes/font_size = 50
+text = "Confirm
+"
+metadata/_edit_lock_ = true
+
+[node name="Button_Cancel" type="Button" parent="CanvasLayer/ColorRect_BackGround/ColorRect_Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_korb8")
+theme_override_fonts/font = ExtResource("2_mkshq")
+theme_override_font_sizes/font_size = 50
+text = "Cancel
+
+"
+metadata/_edit_lock_ = true

@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://blngldrynhlbh"]
+
+[ext_resource type="Script" uid="uid://dyjr3nqikyqdw" path="res://Autoload/SceneControl/scene_control.gd" id="1_3xr1e"]
+[ext_resource type="PackedScene" uid="uid://knqshysxosah" path="res://main.tscn" id="2_feif1"]
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="4_oe3tu"]
+[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="5_v0psw"]
+
+[node name="Control_SceneControl" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_3xr1e")
+main_menu_scene = ExtResource("2_feif1")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.331825, 0.396204, 0.472578, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.317
+anchor_right = 0.668
+anchor_bottom = 0.471
+offset_left = -0.0400391
+offset_top = -0.360016
+offset_right = -0.560059
+offset_bottom = 0.319977
+theme = ExtResource("4_oe3tu")
+theme_override_fonts/font = ExtResource("5_v0psw")
+theme_override_font_sizes/font_size = 120
+text = "Loading"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.24
+anchor_top = 0.63
+anchor_right = 0.76
+anchor_bottom = 0.704
+offset_left = -0.800018
+offset_top = -0.400085
+offset_right = 0.799927
+offset_bottom = -0.320068
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

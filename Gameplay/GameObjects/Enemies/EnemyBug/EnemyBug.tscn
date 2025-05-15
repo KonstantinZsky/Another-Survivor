@@ -1,0 +1,197 @@
+[gd_scene load_steps=16 format=3 uid="uid://2v07gfgqft8j"]
+
+[ext_resource type="Texture2D" uid="uid://bn4ffj7b4qveg" path="res://Assets/Pictures/Characters/Enemies/4eyebug-spritesheet.png" id="1_trc6n"]
+[ext_resource type="Script" uid="uid://cc44mm6xwpwx1" path="res://Gameplay/GameObjects/Enemies/EnemyBug/enemy_bug.gd" id="1_x8wjy"]
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="3_dkyvb"]
+[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="4_3ltbx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8wjy"]
+radius = 15.0
+
+[sub_resource type="Animation" id="Animation_dkyvb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ggbx4"]
+resource_name = "run_left"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_trc6n"]
+resource_name = "run_right"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ltbx"]
+_data = {
+&"RESET": SubResource("Animation_dkyvb"),
+&"run_left": SubResource("Animation_ggbx4"),
+&"run_right": SubResource("Animation_trc6n")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x8wjy"]
+animation = &"run_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ggbx4"]
+animation = &"run_right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_dkyvb"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_x8wjy")
+blend_point_0/pos = -0.9
+blend_point_1/node = SubResource("AnimationNodeAnimation_ggbx4")
+blend_point_1/pos = 1.0
+min_space = -0.9
+
+[sub_resource type="Animation" id="Animation_3ltbx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x8wjy"]
+resource_name = "take_damage"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(4, 4, 4, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ht3dg"]
+_data = {
+&"RESET": SubResource("Animation_3ltbx"),
+&"take_damage": SubResource("Animation_x8wjy")
+}
+
+[node name="CharacterBody2D_EnemyBug" type="CharacterBody2D"]
+collision_layer = 3
+motion_mode = 1
+script = ExtResource("1_x8wjy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_trc6n")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x8wjy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3ltbx")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendSpace1D_dkyvb")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = -0.519679
+
+[node name="AnimationPlayer_TakeDamage" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ht3dg")
+}
+
+[node name="ProgressBar_HP" type="ProgressBar" parent="."]
+offset_left = -15.0
+offset_top = 17.0
+offset_right = 15.0
+offset_bottom = 24.0
+theme = ExtResource("3_dkyvb")
+theme_override_fonts/font = ExtResource("4_3ltbx")
+theme_override_font_sizes/font_size = 8
+value = 100.0
+show_percentage = false
+
+[node name="Timer_Knockback" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer_Knockback" to="." method="_on_timer_knockback_timeout"]
