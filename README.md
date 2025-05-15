@@ -7,13 +7,13 @@
 ### Меню
 Главное меню с опциями, загрузкой сохраненной игровой сессии, началом новой сесии, выбором уровня.<br/>
 <picture>
- <img hight="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/main_menu.png" alt="qr"/>
+ <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/main_menu.png" alt="qr"/>
 </picture>
 <picture>
- <img hight="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/options_menu.png" alt="qr"/>
+ <img width="400px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/options_menu.png" alt="qr"/>
 </picture>
 <picture>
- <img hight="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/level_menu.png" alt="qr"/>
+ <img width="200px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/level_menu.png" alt="qr"/>
 </picture><br/>
 Меню загрузки/сохранений.<br/>
 <picture>
@@ -45,6 +45,6 @@ https://itch.io/queue/c/733269/godot-pixel-fonts?game_id=718254<br/>
 - Добавить графические элементы на игровое поле с использованием шейдеров и анимации Polygon2D при помощи Skeleton2D. Я это уже делал в другом своем проекте, осталось перенести и адаптировать.
 - Система накопления опыта и повышения уровня игрока. Выбор нового оружия и пассивных навыков при повышении уровня.
 - Новые противники, повышение сложности с течением времени, счетчик времени игровой сессии.
-- Босс с состояниями реализованными через state machine. У меня уже есть опыт использования state machine
+- Босс с состояниями реализованными через state machine. У меня уже есть опыт использования state machine<br/>
 и т.д.
 
