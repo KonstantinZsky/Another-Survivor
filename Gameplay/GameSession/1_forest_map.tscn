@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://ct5yd3le6ou35"]
+[gd_scene load_steps=8 format=4 uid="uid://ct5yd3le6ou35"]
 
 [ext_resource type="Script" uid="uid://evycd0gexpc4" path="res://Gameplay/GameSession/1_forest_map.gd" id="1_8oww0"]
 [ext_resource type="Texture2D" uid="uid://dnw6b5q1ff5aa" path="res://Assets/Pictures/Tilesets/forest_tileset.png" id="1_qv5c3"]
+[ext_resource type="PackedScene" uid="uid://bd0p1i3e6nwak" path="res://Gameplay/GameObjects/Nature/Tentacle/Tentacle.tscn" id="3_8sddj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8oww0"]
 texture = ExtResource("1_qv5c3")
@@ -776,3 +777,8 @@ polygon = PackedVector2Array(249, 0, 37, 0, 0, 28, 4, 427, 37, 462, 269, 464, 28
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(237, 0, 426, -2, 463, 30, 467, 421, 423, 467, 252, 464, 253, 711, 766, 719, 760, -302, 225, -312)
+
+[node name="Node2D_Tentacle" parent="." instance=ExtResource("3_8sddj")]
+z_index = 1
+position = Vector2(261, 153)
+scale = Vector2(0.25, 0.25)
