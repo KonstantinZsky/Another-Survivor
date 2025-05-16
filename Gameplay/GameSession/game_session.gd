@@ -10,8 +10,6 @@ extends Node2D
 @export var back_level1 : PackedScene
 @export var back_level2 : PackedScene
 
-var menu_paused = false
-
 var game_field_size : Vector2 = Vector2(0.0,0.0)
 
 func _ready() -> void:
@@ -50,6 +48,8 @@ func _ready() -> void:
 	
 	player_link.init_on_minimap(minimap)	
 	
+	SceneControl.game_session = self
+	
 	# Loading objects if it is load
 	if SceneControl._it_is_load:
 		camera.position = SaveBaseInfo._save_to_load.camera.position
@@ -73,8 +73,15 @@ func _ready() -> void:
 		# объекты на которые может быть ссылка находятся в словаре SaveBaseInfo.linkable_loaded
 		get_tree().call_group("to_save","on_load_game_linking")	
 					
-		SceneControl._it_is_load = false			
-		game_menu.toggle_pause()
+		SceneControl._it_is_load = false	
+		SceneControl.current_scene_state = SceneControl.MySceneState.GAME_PAUSE		
+		#game_menu.toggle_pause()
+		camera.toggle_pause()
+
+@onready var game_lost_panel : ColorRect = $CanvasLayer_GameLost/ColorRect_BackGround
+
+func game_lost() -> void:
+	game_lost_panel.game_lost()
 
 #region Minimap
 
@@ -185,8 +192,6 @@ func make_save(save_name:String,resave:bool):
 	
 	# Сохраняю скриншот миникарты	
 	var mm_inf_saved = SaveBaseInfo.save_minimap(last_mm_screenchot,file_name)
-	
-	# Астероиды сохранять не надо, они уже в словаре сейва и не двигались
 	
 	# Проверить удачно прошло ли сохранение. Если прошло то вызвать функцию,
 	#	которая добавит сохранение в список сохранений.

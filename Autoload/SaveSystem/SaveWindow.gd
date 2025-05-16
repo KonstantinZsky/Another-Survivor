@@ -88,10 +88,12 @@ func _on_button_load_pressed():
 func switch_load_visibility() -> void:
 	$CanvasLayer.visible = !$CanvasLayer.visible
 	SceneControl.save_menu_opened = !SceneControl.save_menu_opened
-	if SceneControl.game_session_active:
-		save_button.visible = true
-	else:
+	if (SceneControl.current_scene_state == SceneControl.MySceneState.MAIN_MENU) || (
+		SceneControl.current_scene_state == SceneControl.MySceneState.GAME_LOST):
 		save_button.visible = false
+	else:
+		save_button.visible = true
+		
 		
 	#$".".visible = !$".".visible
 
@@ -118,7 +120,7 @@ func _on_button_delete_pressed():
 
 func _on_button_save_pressed():
 	# Need game session to save
-	if !SceneControl.game_session_active:
+	if SceneControl.current_scene_state == SceneControl.MySceneState.MAIN_MENU:
 		return
 	var save_name : String = line_edit_edit.text
 	if save_name == "" :
@@ -146,6 +148,10 @@ func _on_button_save_pressed():
 
 func _on_canvas_layer_visibility_changed():
 	tree_saves.set_column_title ( 0, Settings.translate_to_local("Name","Имя") )
+	tree_saves.set_column_title_alignment(0,HORIZONTAL_ALIGNMENT_CENTER)
 	tree_saves.set_column_title ( 1, Settings.translate_to_local("Size","Размер") )
+	tree_saves.set_column_title_alignment(1,HORIZONTAL_ALIGNMENT_CENTER)
 	tree_saves.set_column_title ( 2, Settings.translate_to_local("Type","Тип") )
+	tree_saves.set_column_title_alignment(2,HORIZONTAL_ALIGNMENT_CENTER)
 	tree_saves.set_column_title ( 3, Settings.translate_to_local("Date","Дата") )
+	tree_saves.set_column_title_alignment(3,HORIZONTAL_ALIGNMENT_CENTER)

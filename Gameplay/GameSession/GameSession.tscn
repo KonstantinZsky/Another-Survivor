@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bk4u4nws2bquo"]
+[gd_scene load_steps=15 format=3 uid="uid://bk4u4nws2bquo"]
 
 [ext_resource type="Script" uid="uid://dnye5aila2eb3" path="res://Gameplay/GameSession/game_session.gd" id="1_dbrhr"]
 [ext_resource type="PackedScene" uid="uid://ct5yd3le6ou35" path="res://Gameplay/GameSession/1_forest_map.tscn" id="1_hcmc7"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://b5lfdl6sj62l" path="res://Gameplay/GameSession/color_rect_game_menu.gd" id="6_dr62y"]
 [ext_resource type="PackedScene" uid="uid://2v07gfgqft8j" path="res://Gameplay/GameObjects/Enemies/EnemyBug/EnemyBug.tscn" id="6_ntxu8"]
 [ext_resource type="Script" uid="uid://cf4mnmnx8wyju" path="res://Gameplay/GameSession/camera_2d.gd" id="7_teyce"]
+[ext_resource type="FontFile" uid="uid://bla70pajeuvwo" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="8_dr62y"]
+[ext_resource type="Script" uid="uid://btwhui6gj01p6" path="res://Gameplay/GameSession/color_rect_back_ground.gd" id="8_mpxh5"]
 [ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="8_wvf7f"]
 
 [sub_resource type="Curve2D" id="Curve2D_ntxu8"]
@@ -120,6 +122,67 @@ theme_override_fonts/font = ExtResource("6_510el")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
+[node name="CanvasLayer_GameLost" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect_BackGround" type="ColorRect" parent="CanvasLayer_GameLost"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.941176)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_wvf7f")
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_mpxh5")
+metadata/_edit_lock_ = true
+
+[node name="Label_GameLost" type="Label" parent="CanvasLayer_GameLost/ColorRect_BackGround"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13
+anchor_top = 0.139
+anchor_right = 0.859
+anchor_bottom = 0.269
+offset_left = 0.399979
+offset_top = -0.12001
+offset_right = 0.719971
+offset_bottom = -0.52002
+theme = ExtResource("8_wvf7f")
+theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
+theme_override_fonts/font = ExtResource("8_dr62y")
+theme_override_font_sizes/font_size = 86
+text = "Game lost"
+horizontal_alignment = 1
+
+[node name="Button_ToMenu" type="Button" parent="CanvasLayer_GameLost/ColorRect_BackGround"]
+layout_mode = 2
+offset_left = 300.0
+offset_top = 400.0
+offset_right = 800.0
+offset_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("8_wvf7f")
+theme_override_fonts/font = ExtResource("6_510el")
+theme_override_font_sizes/font_size = 50
+text = "To menu
+"
+
+[node name="Button_Load" type="Button" parent="CanvasLayer_GameLost/ColorRect_BackGround"]
+layout_mode = 2
+offset_left = 1120.0
+offset_top = 400.0
+offset_right = 1620.0
+offset_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("8_wvf7f")
+theme_override_fonts/font = ExtResource("6_510el")
+theme_override_font_sizes/font_size = 50
+text = "Load"
+
 [node name="Node2D_Background" type="Node2D" parent="."]
 
 [node name="Node2D_Enemies" type="Node2D" parent="."]
@@ -174,6 +237,8 @@ script = ExtResource("7_teyce")
 [connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Resume" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_SaveLoad" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_save_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Quit" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer_GameLost/ColorRect_BackGround/Button_ToMenu" to="CanvasLayer_GameLost/ColorRect_BackGround" method="_on_button_to_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer_GameLost/ColorRect_BackGround/Button_Load" to="CanvasLayer_GameLost/ColorRect_BackGround" method="_on_button_load_pressed"]
 [connection signal="timeout" from="Node2D_Player/Node2D_Spawner/Timer_SpawnRotate" to="Node2D_Player/Node2D_Spawner" method="_on_timer_spawn_rotate_timeout"]
 [connection signal="timeout" from="Node2D_Player/Node2D_Spawner/Timer_SpawnAttempt" to="Node2D_Player/Node2D_Spawner" method="_on_timer_spawn_attempt_timeout"]
 [connection signal="timeout" from="Node2D_Player/Node2D_Spawner/Timer_SpawnAddCount" to="Node2D_Player/Node2D_Spawner" method="_on_timer_spawn_add_count_timeout"]

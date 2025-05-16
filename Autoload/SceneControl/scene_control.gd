@@ -11,6 +11,7 @@ extends Control
 var player_link : CharacterBody2D = null
 
 var game_session_scene_path : String = "res://Gameplay/GameSession/GameSession.tscn"
+var game_session = null
 
 var loading_started : bool = false
 
@@ -22,7 +23,15 @@ var lvl1_game_field_size : Vector2 = Vector2(460.0,460.0)
 var lvl2_game_field_size : Vector2 = Vector2(800.0,600.0)
 
 @export var _it_is_load = false
-var game_session_active : bool = false
+
+enum MySceneState {MAIN_MENU,MAIN_MENU_OPTIONS,MAIN_MENU_LEVEL,GAME_ACTIVE,GAME_PAUSE,GAME_MENU,GAME_LOST}
+
+var current_scene_state : MySceneState = MySceneState.MAIN_MENU  : set = _set_game_state
+
+func _set_game_state(new_state : MySceneState) -> void:
+	current_scene_state = new_state
+	if new_state == MySceneState.GAME_LOST:
+		game_session.game_lost()
 
 func _process(_delta: float) -> void:
 	if !loading_started:
@@ -38,7 +47,7 @@ func _process(_delta: float) -> void:
 			get_tree().change_scene_to_packed(packed_scene)
 			scene_canvas.visible = false
 			loading_started = false
-			game_session_active = true
+			current_scene_state = MySceneState.GAME_ACTIVE
 
 func load_game_session() -> void:
 	#get_tree().change_scene_to_packed(_game_session_scene)
@@ -53,4 +62,4 @@ func load_game_session() -> void:
 func load_main_menu() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(main_menu_scene)
-	game_session_active = false
+	current_scene_state = MySceneState.MAIN_MENU

@@ -24,6 +24,7 @@ msgid "New game"
 msgstr "Новая игра"
 
 #: main.tscn Autoload/SaveSystem/SaveWindow.tscn
+#: Gameplay/GameSession/GameSession.tscn
 msgid "Load"
 msgstr "Загрузить"
 
@@ -128,8 +129,12 @@ msgid "Close\n"
 msgstr "Закрыть\n"
 
 #: Autoload/SaveSystem/SaveWindow.tscn
-msgid "File name:\n"
-msgstr "Название файла:\n"
+msgid ""
+"\n"
+"File name:\n"
+msgstr ""
+"\n"
+"Название файла:\n"
 
 #: Gameplay/GameSession/GameSession.tscn
 msgid ""
@@ -154,3 +159,11 @@ msgstr "Продолжить"
 #: Gameplay/GameSession/GameSession.tscn
 msgid "Save/Load"
 msgstr "Сохранить"
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "Game lost"
+msgstr "Игра проиграна"
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "To menu\n"
+msgstr "В меню\n"

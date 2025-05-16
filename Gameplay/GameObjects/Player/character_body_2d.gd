@@ -115,6 +115,8 @@ var player_health : float = 100.0 : set = _set_player_health
 func _set_player_health(new_h : float) -> void:
 	player_health = new_h
 	health_bar.value = new_h
+	if player_health < 0.0:
+		SceneControl.current_scene_state = SceneControl.MySceneState.GAME_LOST
 
 func take_contact_damage() -> void:
 	if contact_damage_timer.is_stopped():

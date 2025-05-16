@@ -5,12 +5,17 @@ extends ColorRect
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		toggle_pause()
-		
+
 func toggle_pause() -> void:
 	var pause : bool = get_tree().paused
-	# If game paused normally - do nothing
-	if (pause && !game_session.menu_paused):
+	# If game paused normally - do nothing (menu not opened)
+	if SceneControl.current_scene_state == SceneControl.MySceneState.GAME_PAUSE:
 		return
+	# Cant unpause if game is lost
+	if SceneControl.current_scene_state == SceneControl.MySceneState.GAME_LOST:		
+		return
+	#if (pause && !game_session.menu_paused):
+		#return
 	# If save menu opened - close it
 	if SceneControl.save_menu_opened:
 		SaveWindow.switch_load_visibility()
@@ -18,7 +23,11 @@ func toggle_pause() -> void:
 		
 	game_session.make_mm_screenshot() # Minimap screenshot for save
 	pause = !pause
-	game_session.menu_paused = pause
+	if pause:
+		SceneControl.current_scene_state = SceneControl.MySceneState.GAME_MENU
+	else:
+		SceneControl.current_scene_state = SceneControl.MySceneState.GAME_ACTIVE
+	#game_session.menu_paused = pause
 	get_tree().paused = pause
 	self.visible = pause
 

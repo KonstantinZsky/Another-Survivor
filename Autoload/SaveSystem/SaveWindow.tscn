@@ -130,7 +130,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 1
 theme = ExtResource("3_4sx4x")
 theme_override_font_sizes/font_size = 40
-text = "File name:
+text = "
+File name:
 "
 horizontal_alignment = 1
 vertical_alignment = 1

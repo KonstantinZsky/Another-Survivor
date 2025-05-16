@@ -7,22 +7,24 @@ extends Control
 @onready var options : CanvasLayer = $CanvasLayer_Options
 @onready var new_game : CanvasLayer = $CanvasLayer_NewGame
 
-enum Visible_panel { MAIN_MENU, OPTIONS, NEW_GAME}  
 
-func _switch_current_panel(cur_p : Visible_panel) -> void:
+func _switch_current_panel(cur_p : SceneControl.MySceneState) -> void:
 	match cur_p:
-		Visible_panel.MAIN_MENU:
+		SceneControl.MySceneState.MAIN_MENU:
 			main_menu.visible = true	
 			options.visible = false
 			new_game.visible = false
-		Visible_panel.OPTIONS:
+			SceneControl.current_scene_state = SceneControl.MySceneState.MAIN_MENU
+		SceneControl.MySceneState.MAIN_MENU_OPTIONS:
 			main_menu.visible = false	
 			options.visible = true
 			new_game.visible = false
-		Visible_panel.NEW_GAME:
+			SceneControl.current_scene_state = SceneControl.MySceneState.MAIN_MENU_OPTIONS
+		SceneControl.MySceneState.MAIN_MENU_LEVEL:
 			main_menu.visible = false	
 			options.visible = false
 			new_game.visible = true
+			SceneControl.current_scene_state = SceneControl.MySceneState.MAIN_MENU_LEVEL
 
 var _settings_local : Dictionary = {
 	filePathMy = "Settings",
@@ -64,6 +66,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	
 	# Using the ESC Key event
 	if event.is_action_pressed("ui_cancel"):
+		if !SceneControl.current_scene_state == SceneControl.MySceneState.MAIN_MENU:
+			_switch_current_panel(SceneControl.MySceneState.MAIN_MENU)
+			return
 		# Customize our Modal's texts
 		Confirmation.customize(
 			Settings.translate_to_local("Are you certain?","Вы уверены?"),
@@ -81,13 +86,13 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			
 
 func _on_button_new_game_pressed() -> void:
-	_switch_current_panel(Visible_panel.NEW_GAME)
+	_switch_current_panel(SceneControl.MySceneState.MAIN_MENU_LEVEL)
 
 func _on_button_load_pressed() -> void:
 	SaveWindow.switch_load_visibility()
 
 func _on_button_options_pressed() -> void:
-	_switch_current_panel(Visible_panel.OPTIONS)
+	_switch_current_panel(SceneControl.MySceneState.MAIN_MENU_OPTIONS)
 
 func _on_button_quit_pressed() -> void:
 	# Customize our Modal's texts
@@ -111,7 +116,7 @@ func _on_button_quit_pressed() -> void:
 
 func _on_button_back_pressed() -> void:
 	_settings_local = Settings.settings_global.duplicate(true)
-	_switch_current_panel(Visible_panel.MAIN_MENU)
+	_switch_current_panel(SceneControl.MySceneState.MAIN_MENU)
 
 # При видимости настроек обновляем информацию о настройках, для каждого элемента отдельно
 # Здесь список разрешений
@@ -206,7 +211,7 @@ func _on_option_button_lang_item_selected(_index: int) -> void:
 func _on_button_save_pressed() -> void:
 	if !Settings.check_if_settings_changed(_settings_local):
 		Logging.logg("Опции закрыты",Logging.MessageType.INFO)	
-		_switch_current_panel(Visible_panel.MAIN_MENU)	
+		_switch_current_panel(SceneControl.MySceneState.MAIN_MENU)	
 		return	
 	
 	# Customize our Modal's texts
@@ -257,16 +262,16 @@ func _on_button_save_pressed() -> void:
 	else:
 		_settings_local = Settings.settings_global.duplicate(true)
 	
-	_switch_current_panel(Visible_panel.MAIN_MENU)
+	_switch_current_panel(SceneControl.MySceneState.MAIN_MENU)
 	
 #endregion
 
-#region Новая New game
+#region New game
 
 @onready var selected_new_level : OptionButton = $CanvasLayer_NewGame/ColorRect_Options/ColorRect_Video/OptionButton
 
 func _on_button_new_game_back_pressed() -> void:
-	_switch_current_panel(Visible_panel.MAIN_MENU)
+	_switch_current_panel(SceneControl.MySceneState.MAIN_MENU)
 
 func _on_button_start_pressed() -> void:
 	SceneControl.load_game_session()
@@ -276,7 +281,6 @@ func _on_option_button_item_selected(index: int) -> void:
 	Settings.settings_global.new_level_number = index + 1
 	
 #endregion
-
 
 func _on_vsync_toggled(button_pressed: bool) -> void:
 	_settings_local.vsync = button_pressed

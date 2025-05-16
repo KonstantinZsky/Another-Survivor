@@ -26,9 +26,15 @@ func set_camera_position(new_pos):
 #endregion
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Pause_game_session") && !game_session.menu_paused:
-		toggle_pause()
+	if Input.is_action_just_pressed("Pause_game_session"):
+		if  SceneControl.current_scene_state == SceneControl.MySceneState.GAME_ACTIVE:
+			SceneControl.current_scene_state = SceneControl.MySceneState.GAME_PAUSE
+			toggle_pause()
+		elif  SceneControl.current_scene_state == SceneControl.MySceneState.GAME_PAUSE:
+			SceneControl.current_scene_state = SceneControl.MySceneState.GAME_ACTIVE
+			toggle_pause()		
 	if Input.is_action_just_pressed("ui_cancel") && free_camera:
+		SceneControl.current_scene_state = SceneControl.MySceneState.GAME_ACTIVE
 		toggle_pause()
 	
 	if !free_camera:

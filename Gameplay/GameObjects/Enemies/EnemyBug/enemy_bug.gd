@@ -7,7 +7,7 @@ var dir_to_player : Vector2 = Vector2(0.0,0.0)
 
 @export var move_speed : float = 50.0 # 3 times less then player
 
-var contact_damage_to_player : float = 10.0
+@export var contact_damage_to_player : float = 10.0
 
 func update_animation_parametrs() -> void:
 	anim_tree["parameters/blend_position"] = dir_to_player.x

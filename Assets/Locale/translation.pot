@@ -1,4 +1,4 @@
-# LANGUAGE translation for Another Survival for the following files:
+# LANGUAGE translation for Another Survivor for the following files:
 # res://main.tscn
 # res://Autoload/SaveSystem/SaveWindow.tscn
 # res://Gameplay/GameSession/GameSession.tscn
@@ -8,7 +8,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Another Survival\n"
+"Project-Id-Version: Another Survivor\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
@@ -19,6 +19,7 @@ msgstr ""
 
 #: main.tscn
 #: Autoload/SaveSystem/SaveWindow.tscn
+#: Gameplay/GameSession/GameSession.tscn
 msgid "Load"
 msgstr ""
 
@@ -125,7 +126,9 @@ msgid "Close\n"
 msgstr ""
 
 #: Autoload/SaveSystem/SaveWindow.tscn
-msgid "File name:\n"
+msgid ""
+"\n"
+"File name:\n"
 msgstr ""
 
 #: Gameplay/GameSession/GameSession.tscn
@@ -146,4 +149,12 @@ msgstr ""
 
 #: Gameplay/GameSession/GameSession.tscn
 msgid "Save/Load"
+msgstr ""
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "Game lost"
+msgstr ""
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "To menu\n"
 msgstr ""

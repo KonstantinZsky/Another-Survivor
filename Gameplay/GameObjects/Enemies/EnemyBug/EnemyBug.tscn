@@ -157,6 +157,7 @@ _data = {
 collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_x8wjy")
+contact_damage_to_player = 34.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_trc6n")
