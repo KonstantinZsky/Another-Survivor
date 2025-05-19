@@ -1,0 +1,105 @@
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://c4w53nyhhtaps"]
+
+[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="1_3vitp"]
+[ext_resource type="StyleBox" uid="uid://2tovbbfnasms" path="res://Assets/Pictures/UI/Button/ButtonOrnateNormalStyle.tres" id="2_dkvgu"]
+[ext_resource type="StyleBox" uid="uid://cqaa4c8yj1ard" path="res://Assets/Pictures/UI/Button/ButtonStyle.tres" id="3_3svf8"]
+[ext_resource type="Texture2D" uid="uid://dbip6fx7eox35" path="res://Assets/Pictures/UI/Button/ButtonOrnateToggled.png" id="4_7n4dc"]
+[ext_resource type="Texture2D" uid="uid://biyd3pfd808d0" path="res://Assets/Pictures/UI/Panel/PanelAlternative.png" id="5_3vitp"]
+[ext_resource type="Texture2D" uid="uid://bu36n47u0vygm" path="res://Assets/Pictures/UI/ProgressBar/ExpBar.png" id="6_dkvgu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xtra"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uow40"]
+texture = ExtResource("4_7n4dc")
+texture_margin_left = 8.0
+texture_margin_top = 40.0
+texture_margin_right = 8.0
+texture_margin_bottom = 22.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a5pkj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_od7ci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_61p4h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_44bqg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uow40"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggaob"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i4bfc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axi6h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wup7m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hq5pu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgey2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p5ha"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6exgh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ldwav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnfy5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_238rc"]
+texture = ExtResource("5_3vitp")
+texture_margin_left = 124.0
+texture_margin_top = 36.0
+texture_margin_right = 124.0
+texture_margin_bottom = 35.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_61p4h"]
+texture = ExtResource("6_dkvgu")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vitp"]
+bg_color = Color(0.0404103, 0.397772, 0.294759, 1)
+border_width_left = 6
+border_width_bottom = 11
+border_color = Color(0, 0, 0, 0)
+border_blend = true
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+corner_detail = 4
+
+[resource]
+default_font_size = 30
+Button/fonts/font = ExtResource("1_3vitp")
+Button/styles/focus = SubResource("StyleBoxEmpty_5xtra")
+Button/styles/hover = ExtResource("2_dkvgu")
+Button/styles/normal = ExtResource("3_3svf8")
+Button/styles/pressed = SubResource("StyleBoxTexture_uow40")
+CheckBox/styles/disabled = SubResource("StyleBoxEmpty_a5pkj")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_od7ci")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_61p4h")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_44bqg")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_uow40")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_ggaob")
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_i4bfc")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_axi6h")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_wup7m")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_hq5pu")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_cgey2")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_4p5ha")
+Label/fonts/font = ExtResource("1_3vitp")
+OptionButton/font_sizes/font_size = 60
+OptionButton/fonts/font = ExtResource("1_3vitp")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_6exgh")
+OptionButton/styles/normal = SubResource("StyleBoxEmpty_ldwav")
+OptionButton/styles/pressed = SubResource("StyleBoxEmpty_qnfy5")
+Panel/styles/panel = SubResource("StyleBoxTexture_238rc")
+PopupMenu/font_sizes/font_size = 60
+PopupMenu/font_sizes/title_font_size = 60
+PopupMenu/fonts/font = ExtResource("1_3vitp")
+PopupMenu/fonts/font_separator = ExtResource("1_3vitp")
+PopupMenu/fonts/title_font = ExtResource("1_3vitp")
+ProgressBar/fonts/font = ExtResource("1_3vitp")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_61p4h")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_3vitp")

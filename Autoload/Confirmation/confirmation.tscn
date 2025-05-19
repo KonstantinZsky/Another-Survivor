@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bla70pajeuvwo" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="1_cux40"]
 [ext_resource type="Script" uid="uid://dnn77tftouul3" path="res://Autoload/Confirmation/confirmation.gd" id="1_mkshq"]
-[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="2_korb8"]
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/BaseUI.tres" id="2_korb8"]
 [ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="2_mkshq"]
 
 [node name="Control_Confirmation" type="Control"]

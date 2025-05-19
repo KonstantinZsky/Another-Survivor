@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://eb5b3bjk2xwv" path="res://Autoload/SaveSystem/SaveWindow.gd" id="1_pfkxl"]
 [ext_resource type="PackedScene" uid="uid://bk4u4nws2bquo" path="res://Gameplay/GameSession/GameSession.tscn" id="2_hydm3"]
 [ext_resource type="Shader" uid="uid://c8hf18m2nkakh" path="res://Assets/Resourses/GradientBlurShader.gdshader" id="3_4hm3g"]
-[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="3_4sx4x"]
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/BaseUI.tres" id="3_4sx4x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7gxmy"]
 shader = ExtResource("3_4hm3g")

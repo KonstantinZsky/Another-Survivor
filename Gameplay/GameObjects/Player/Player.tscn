@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://35x2upkm4bl0" path="res://Assets/Pictures/Tilesets/bat-swing-1.png" id="4_4cjus"]
 [ext_resource type="Texture2D" uid="uid://chj3u2gcjfdoj" path="res://Assets/Pictures/Tilesets/bat-swing-2.png" id="5_u1jrt"]
 [ext_resource type="Texture2D" uid="uid://w27j8e7ys4d2" path="res://Assets/Pictures/Tilesets/bat-swing-3.png" id="6_i7w8i"]
-[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="6_u1jrt"]
+[ext_resource type="Theme" uid="uid://dqj6mldu4o750" path="res://Assets/Themes/HPbars.tres" id="6_u1jrt"]
 [ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="7_i7w8i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etymb"]
@@ -391,6 +391,7 @@ libraries = {
 [node name="Node2D_BatSwing" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_BatSwing"]
+z_index = 2
 position = Vector2(40, 0)
 scale = Vector2(1, 2)
 sprite_frames = SubResource("SpriteFrames_ce8gb")

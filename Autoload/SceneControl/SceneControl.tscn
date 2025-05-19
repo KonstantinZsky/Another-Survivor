@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dyjr3nqikyqdw" path="res://Autoload/SceneControl/scene_control.gd" id="1_3xr1e"]
 [ext_resource type="PackedScene" uid="uid://knqshysxosah" path="res://main.tscn" id="2_feif1"]
-[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="4_oe3tu"]
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/BaseUI.tres" id="4_oe3tu"]
 [ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="5_v0psw"]
 
 [node name="Control_SceneControl" type="Control"]
@@ -17,6 +17,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_3xr1e")
 main_menu_scene = ExtResource("2_feif1")
+emulate_long_load_seconds = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -58,7 +59,9 @@ offset_left = -0.800018
 offset_top = -0.400085
 offset_right = 0.799927
 offset_bottom = -0.320068
+theme = ExtResource("4_oe3tu")
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true

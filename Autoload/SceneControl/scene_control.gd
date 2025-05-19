@@ -28,6 +28,8 @@ enum MySceneState {MAIN_MENU,MAIN_MENU_OPTIONS,MAIN_MENU_LEVEL,GAME_ACTIVE,GAME_
 
 var current_scene_state : MySceneState = MySceneState.MAIN_MENU  : set = _set_game_state
 
+@export var emulate_long_load_seconds : float = 3.0
+
 func _set_game_state(new_state : MySceneState) -> void:
 	current_scene_state = new_state
 	if new_state == MySceneState.GAME_LOST:
@@ -40,7 +42,7 @@ func _process(_delta: float) -> void:
 	#progress_bar.value = progress[0]*100.0
 	progress_bar.value = progress[0]*90.0
 	if progress[0] == 1:
-		progress_bar.value = progress[0]*90.0 + (3.0-timer_emulate_long_load.time_left)/3.0*10.0	
+		progress_bar.value = progress[0]*90.0 + (emulate_long_load_seconds-timer_emulate_long_load.time_left)/emulate_long_load_seconds*10.0	
 		if timer_emulate_long_load.is_stopped():
 			var packed_scene = ResourceLoader.load_threaded_get(game_session_scene_path)
 			get_tree().paused = false
@@ -54,7 +56,7 @@ func load_game_session() -> void:
 	ResourceLoader.load_threaded_request(game_session_scene_path)
 	progress_bar.value = 0
 	loading_started = true
-	timer_emulate_long_load.start()
+	timer_emulate_long_load.start(emulate_long_load_seconds)
 	scene_canvas.visible = true
 	get_tree().paused = true
 

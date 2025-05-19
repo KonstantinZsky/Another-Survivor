@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://knqshysxosah"]
+[gd_scene load_steps=5 format=3 uid="uid://knqshysxosah"]
 
-[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="1_7mycd"]
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/BaseUI.tres" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dgjrkk4f4v0y6" path="res://Assets/Pictures/MenuBackground.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bmfa1k8lc8g6l" path="res://main.gd" id="1_lquwl"]
-[ext_resource type="FontFile" uid="uid://bla70pajeuvwo" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="2_0xm2m"]
-[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="3_h2yge"]
+[ext_resource type="Theme" uid="uid://c4w53nyhhtaps" path="res://Assets/Themes/AlternativeUI.tres" id="4_1bvp3"]
 
 [node name="Control_Main" type="Control"]
 layout_mode = 3
@@ -23,7 +22,79 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasLayer_MainMenu" type="CanvasLayer" parent="."]
 
+[node name="Panel" type="Panel" parent="CanvasLayer_MainMenu"]
+anchors_preset = -1
+anchor_left = 0.365
+anchor_top = 0.204
+anchor_right = 0.635
+anchor_bottom = 0.87
+offset_left = -0.800049
+offset_top = -0.320007
+offset_right = 0.799927
+offset_bottom = 0.399902
+theme = ExtResource("1_7mycd")
+
+[node name="VBoxContainer_MenuButtons" type="VBoxContainer" parent="CanvasLayer_MainMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.173
+anchor_top = 0.119
+anchor_right = 0.827
+anchor_bottom = 0.896
+offset_left = 0.0400009
+offset_top = -45.68
+offset_right = -0.0400085
+offset_bottom = 34.88
+theme = ExtResource("1_7mycd")
+metadata/_edit_lock_ = true
+
+[node name="Button_NewGame" type="Button" parent="CanvasLayer_MainMenu/Panel/VBoxContainer_MenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_font_sizes/font_size = 50
+text = "New game"
+
+[node name="Button_Load" type="Button" parent="CanvasLayer_MainMenu/Panel/VBoxContainer_MenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_font_sizes/font_size = 50
+text = "Load"
+
+[node name="Button_Options" type="Button" parent="CanvasLayer_MainMenu/Panel/VBoxContainer_MenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7mycd")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Button_Quit" type="Button" parent="CanvasLayer_MainMenu/Panel/VBoxContainer_MenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Label_MenuTitle" type="Label" parent="CanvasLayer_MainMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.286
+anchor_top = 0.161
+anchor_right = 0.714
+anchor_bottom = 0.283
+offset_left = -298.72
+offset_top = -235.92
+offset_right = 295.72
+offset_bottom = -223.828
+theme = ExtResource("1_7mycd")
+theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
+theme_override_font_sizes/font_size = 86
+text = "Another Survivor"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
 [node name="ColorRect_Panel" type="ColorRect" parent="CanvasLayer_MainMenu"]
+visible = false
 modulate = Color(1, 1, 1, 0.884)
 anchors_preset = -1
 anchor_left = 0.365
@@ -36,71 +107,6 @@ offset_right = 0.799927
 offset_bottom = -0.160034
 theme = ExtResource("1_7mycd")
 color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="VBoxContainer_MenuButtons" type="VBoxContainer" parent="CanvasLayer_MainMenu/ColorRect_Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.173
-anchor_top = 0.119
-anchor_right = 0.827
-anchor_bottom = 0.896
-offset_left = 0.0399857
-offset_top = -0.0660019
-offset_right = -0.0400696
-offset_bottom = -0.144043
-theme = ExtResource("1_7mycd")
-metadata/_edit_lock_ = true
-
-[node name="Button_NewGame" type="Button" parent="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_7mycd")
-theme_override_fonts/font = ExtResource("3_h2yge")
-theme_override_font_sizes/font_size = 50
-text = "New game"
-
-[node name="Button_Load" type="Button" parent="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_7mycd")
-theme_override_fonts/font = ExtResource("3_h2yge")
-theme_override_font_sizes/font_size = 50
-text = "Load"
-
-[node name="Button_Options" type="Button" parent="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_7mycd")
-theme_override_fonts/font = ExtResource("3_h2yge")
-theme_override_font_sizes/font_size = 50
-text = "Options"
-
-[node name="Button_Quit" type="Button" parent="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_7mycd")
-theme_override_fonts/font = ExtResource("3_h2yge")
-theme_override_font_sizes/font_size = 50
-text = "Quit"
-
-[node name="Label_MenuTitle" type="Label" parent="CanvasLayer_MainMenu/ColorRect_Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.286
-anchor_top = 0.161
-anchor_right = 0.714
-anchor_bottom = 0.283
-offset_left = -298.72
-offset_top = -203.854
-offset_right = 295.72
-offset_bottom = -191.762
-theme = ExtResource("1_7mycd")
-theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
-theme_override_fonts/font = ExtResource("2_0xm2m")
-theme_override_font_sizes/font_size = 86
-text = "Another Survivor"
-horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer_Options" type="CanvasLayer" parent="."]
@@ -118,68 +124,66 @@ theme = ExtResource("1_7mycd")
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="ColorRect_Video" type="ColorRect" parent="CanvasLayer_Options/ColorRect_Options"]
-self_modulate = Color(1, 1, 1, 0.028)
+[node name="Panel_Video" type="Panel" parent="CanvasLayer_Options/ColorRect_Options"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.219
+anchor_left = 0.115
 anchor_top = 0.259
 anchor_right = 0.448
 anchor_bottom = 0.759
-offset_left = -0.480011
+offset_left = -0.800003
 offset_top = 0.279999
 offset_right = -0.160034
 offset_bottom = 0.279907
-theme = ExtResource("1_7mycd")
+theme = ExtResource("4_1bvp3")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video"]
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.114
 anchor_top = 0.037
 anchor_right = 0.886
 anchor_bottom = 0.185
-offset_left = -0.160004
-offset_top = 0.0200005
+offset_left = -0.159996
+offset_top = 10.02
 offset_right = 0.159973
-offset_bottom = 0.0999985
+offset_bottom = 10.1
 theme = ExtResource("1_7mycd")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 60
 text = "Video"
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.185
-anchor_right = 0.955
-anchor_bottom = 0.963
-offset_left = 20.0
-offset_top = 0.0999985
-offset_right = -0.200012
-offset_bottom = -0.0200195
+anchor_left = 0.187
+anchor_top = 0.157
+anchor_right = 0.812
+anchor_bottom = 0.898
+offset_left = 0.319992
+offset_top = 0.219994
+offset_right = 0.319946
+offset_bottom = 0.0799561
 theme = ExtResource("1_7mycd")
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer_Resolution" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer"]
+[node name="HBoxContainer_Resolution" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution"]
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_Resolution"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 30
 text = "Resolution"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton_Res" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution"]
+[node name="OptionButton_Res" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_Resolution"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
@@ -191,21 +195,20 @@ popup/item_0/id = 0
 popup/item_1/text = "1280x720"
 popup/item_1/id = 1
 
-[node name="HBoxContainer_TextureFilter" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer"]
+[node name="HBoxContainer_TextureFilter" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter"]
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_TextureFilter"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 30
 text = "Filtration"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton_tex" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter"]
+[node name="OptionButton_tex" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_TextureFilter"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
@@ -217,79 +220,75 @@ popup/item_0/id = 0
 popup/item_1/text = "Linear"
 popup/item_1/id = 1
 
-[node name="CheckBox_FullScreen" type="CheckBox" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer"]
+[node name="CheckBox_FullScreen" type="CheckBox" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 30
 text = "Full screen"
 alignment = 1
 
-[node name="CheckBox_VSync" type="CheckBox" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer"]
+[node name="CheckBox_VSync" type="CheckBox" parent="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 30
 text = "VSync"
 alignment = 1
 
-[node name="ColorRect_Game" type="ColorRect" parent="CanvasLayer_Options/ColorRect_Options"]
-self_modulate = Color(1, 1, 1, 0.028)
+[node name="Panel_Game" type="Panel" parent="CanvasLayer_Options/ColorRect_Options"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.219
+anchor_left = 0.531
 anchor_top = 0.259
-anchor_right = 0.448
+anchor_right = 0.865
 anchor_bottom = 0.759
-offset_left = 599.52
+offset_left = 0.47998
 offset_top = 0.279999
-offset_right = 599.84
+offset_right = -0.800171
 offset_bottom = 0.279907
-theme = ExtResource("1_7mycd")
+theme = ExtResource("4_1bvp3")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Game"]
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/Panel_Game"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.114
-anchor_top = 0.037
-anchor_right = 0.886
-anchor_bottom = 0.185
-offset_left = -0.160004
-offset_top = 0.0200005
-offset_right = 0.159973
-offset_bottom = 0.0999985
+anchor_left = 0.234
+anchor_top = 0.056
+anchor_right = 0.766
+anchor_bottom = 0.204
+offset_left = 0.23999
+offset_top = -0.240002
+offset_right = -0.240021
+offset_bottom = -0.160019
 theme = ExtResource("1_7mycd")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 60
 text = "Game"
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer_Language" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Game"]
+[node name="HBoxContainer_Language" type="HBoxContainer" parent="CanvasLayer_Options/ColorRect_Options/Panel_Game"]
 layout_mode = 2
-anchor_left = 0.045
-anchor_top = 0.185
-anchor_right = 1.0
-anchor_bottom = 0.38
-offset_left = 0.199999
-offset_top = 0.100014
-offset_right = -21.345
-offset_bottom = -0.200012
+anchor_left = 0.187
+anchor_top = 0.157
+anchor_right = 0.81
+anchor_bottom = 0.352
+offset_left = 0.319992
+offset_top = 0.219994
+offset_right = 0.255005
+offset_bottom = -0.0800476
 size_flags_vertical = 3
+metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language"]
+[node name="Label" type="Label" parent="CanvasLayer_Options/ColorRect_Options/Panel_Game/HBoxContainer_Language"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 30
 text = "Language"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton_Lang" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language"]
+[node name="OptionButton_Lang" type="OptionButton" parent="CanvasLayer_Options/ColorRect_Options/Panel_Game/HBoxContainer_Language"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
@@ -314,7 +313,6 @@ offset_right = -0.880127
 offset_bottom = 0.359985
 theme = ExtResource("1_7mycd")
 theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
-theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 86
 text = "Options"
 horizontal_alignment = 1
@@ -333,7 +331,6 @@ offset_right = -0.800171
 offset_bottom = -0.320068
 size_flags_vertical = 3
 theme = ExtResource("1_7mycd")
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 50
 text = "Back
 "
@@ -352,7 +349,6 @@ offset_right = -0.480011
 offset_bottom = -0.320068
 size_flags_vertical = 3
 theme = ExtResource("1_7mycd")
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 50
 text = "Save
 "
@@ -401,7 +397,6 @@ offset_right = 0.159973
 offset_bottom = 0.0999985
 theme = ExtResource("1_7mycd")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 60
 text = "Choose level"
 horizontal_alignment = 1
@@ -442,7 +437,6 @@ offset_right = -0.880127
 offset_bottom = 0.359985
 theme = ExtResource("1_7mycd")
 theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
-theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 86
 text = "New Game"
 horizontal_alignment = 1
@@ -461,7 +455,6 @@ offset_right = -0.800171
 offset_bottom = -0.320068
 size_flags_vertical = 3
 theme = ExtResource("1_7mycd")
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 50
 text = "Back
 "
@@ -480,26 +473,25 @@ offset_right = -0.480011
 offset_bottom = -0.320068
 size_flags_vertical = 3
 theme = ExtResource("1_7mycd")
-theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 50
 text = "Start
 "
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_NewGame" to="." method="_on_button_new_game_pressed"]
-[connection signal="pressed" from="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Load" to="." method="_on_button_load_pressed"]
-[connection signal="pressed" from="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Options" to="." method="_on_button_options_pressed"]
-[connection signal="pressed" from="CanvasLayer_MainMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Quit" to="." method="_on_button_quit_pressed"]
-[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res" to="." method="_on_option_button_res_item_selected"]
-[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res" to="." method="_on_option_button_res_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res"]]
-[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex" to="." method="_on_option_button_tex_item_selected"]
-[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex" to="." method="_on_option_button_tex_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex"]]
-[connection signal="toggled" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_FullScreen" to="." method="_on_check_box_full_screen_toggled"]
-[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_FullScreen" to="." method="_on_check_box_full_screen_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_FullScreen"]]
-[connection signal="toggled" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_VSync" to="." method="_on_check_box_v_sync_toggled"]
-[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_VSync" to="." method="_on_check_box_v_sync_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Video/VBoxContainer/CheckBox_VSync"]]
-[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language/OptionButton_Lang" to="." method="_on_option_button_lang_item_selected"]
-[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language/OptionButton_Lang" to="." method="_on_option_button_lang_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/ColorRect_Game/HBoxContainer_Language/OptionButton_Lang"]]
+[connection signal="pressed" from="CanvasLayer_MainMenu/Panel/VBoxContainer_MenuButtons/Button_NewGame" to="." method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer_MainMenu/Panel/VBoxContainer_MenuButtons/Button_Load" to="." method="_on_button_load_pressed"]
+[connection signal="pressed" from="CanvasLayer_MainMenu/Panel/VBoxContainer_MenuButtons/Button_Options" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="CanvasLayer_MainMenu/Panel/VBoxContainer_MenuButtons/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res" to="." method="_on_option_button_res_item_selected"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res" to="." method="_on_option_button_res_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_Resolution/OptionButton_Res"]]
+[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex" to="." method="_on_option_button_tex_item_selected"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex" to="." method="_on_option_button_tex_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/HBoxContainer_TextureFilter/OptionButton_tex"]]
+[connection signal="toggled" from="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/CheckBox_FullScreen" to="." method="_on_check_box_full_screen_toggled"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/CheckBox_FullScreen" to="." method="_on_check_box_full_screen_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/CheckBox_FullScreen"]]
+[connection signal="toggled" from="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/CheckBox_VSync" to="." method="_on_check_box_v_sync_toggled"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/CheckBox_VSync" to="." method="_on_check_box_v_sync_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/Panel_Video/VBoxContainer/CheckBox_VSync"]]
+[connection signal="item_selected" from="CanvasLayer_Options/ColorRect_Options/Panel_Game/HBoxContainer_Language/OptionButton_Lang" to="." method="_on_option_button_lang_item_selected"]
+[connection signal="visibility_changed" from="CanvasLayer_Options/ColorRect_Options/Panel_Game/HBoxContainer_Language/OptionButton_Lang" to="." method="_on_option_button_lang_visibility_changed" binds= ["CanvasLayer_Options/ColorRect_Options/Panel_Game/HBoxContainer_Language/OptionButton_Lang"]]
 [connection signal="pressed" from="CanvasLayer_Options/ColorRect_Options/Button_Back" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer_Options/ColorRect_Options/Button_Save" to="." method="_on_button_save_pressed"]
 [connection signal="item_selected" from="CanvasLayer_NewGame/ColorRect_Options/ColorRect_Video/OptionButton" to="." method="_on_option_button_item_selected"]

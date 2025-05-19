@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv8g062tfx0dp"
-path="res://.godot/imported/pink_blue_v3.png-0bb0dff085dcd304280ff6fdbab5521b.ctex"
+uid="uid://csxymrvrwbr4i"
+path="res://.godot/imported/Bar.png-80f3e3e94d7425e50c323c0782b60728.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/BackTextures/pink_blue_v3.png"
-dest_files=["res://.godot/imported/pink_blue_v3.png-0bb0dff085dcd304280ff6fdbab5521b.ctex"]
+source_file="res://Assets/Pictures/UI/ProgressBar/Bar.png"
+dest_files=["res://.godot/imported/Bar.png-80f3e3e94d7425e50c323c0782b60728.ctex"]
 
 [params]
 

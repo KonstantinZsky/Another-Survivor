@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bk4u4nws2bquo"]
+[gd_scene load_steps=14 format=3 uid="uid://bk4u4nws2bquo"]
 
 [ext_resource type="Script" uid="uid://dnye5aila2eb3" path="res://Gameplay/GameSession/game_session.gd" id="1_dbrhr"]
 [ext_resource type="PackedScene" uid="uid://ct5yd3le6ou35" path="res://Gameplay/GameSession/1_forest_map.tscn" id="1_hcmc7"]
@@ -6,13 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://de1wy6g7hst8i" path="res://Gameplay/GameSession/2_lab_map.tscn" id="3_5v6i5"]
 [ext_resource type="PackedScene" uid="uid://cu3ray61esnns" path="res://Gameplay/UI/Minimap/Minimap.tscn" id="5_p1xu7"]
 [ext_resource type="Script" uid="uid://bl1icpjxis8dl" path="res://Gameplay/GameSession/node_2d_spawner.gd" id="5_r76vg"]
-[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="6_510el"]
 [ext_resource type="Script" uid="uid://b5lfdl6sj62l" path="res://Gameplay/GameSession/color_rect_game_menu.gd" id="6_dr62y"]
 [ext_resource type="PackedScene" uid="uid://2v07gfgqft8j" path="res://Gameplay/GameObjects/Enemies/EnemyBug/EnemyBug.tscn" id="6_ntxu8"]
+[ext_resource type="Theme" uid="uid://c4w53nyhhtaps" path="res://Assets/Themes/AlternativeUI.tres" id="7_dr62y"]
 [ext_resource type="Script" uid="uid://cf4mnmnx8wyju" path="res://Gameplay/GameSession/camera_2d.gd" id="7_teyce"]
-[ext_resource type="FontFile" uid="uid://bla70pajeuvwo" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="8_dr62y"]
 [ext_resource type="Script" uid="uid://btwhui6gj01p6" path="res://Gameplay/GameSession/color_rect_back_ground.gd" id="8_mpxh5"]
-[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/Base.tres" id="8_wvf7f"]
+[ext_resource type="Theme" uid="uid://3p0so5ihlcum" path="res://Assets/Themes/BaseUI.tres" id="8_wvf7f"]
 
 [sub_resource type="Curve2D" id="Curve2D_ntxu8"]
 _data = {
@@ -29,9 +28,9 @@ back_level2 = ExtResource("3_5v6i5")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 10.0
-offset_top = 10.0
-offset_right = 202.0
-offset_bottom = 33.0
+offset_top = 93.0
+offset_right = 453.0
+offset_bottom = 158.0
 theme = ExtResource("8_wvf7f")
 text = "P - pase game (free camera)
 Esq - menu"
@@ -65,11 +64,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.203922)
+color = Color(0, 0, 0, 0.47451)
 script = ExtResource("6_dr62y")
 
-[node name="ColorRect_Panel" type="ColorRect" parent="CanvasLayer/ColorRect_GameMenu"]
-modulate = Color(1, 1, 1, 0.884)
+[node name="Panel" type="Panel" parent="CanvasLayer/ColorRect_GameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.365
@@ -81,10 +79,9 @@ offset_top = 0.359985
 offset_right = 0.799927
 offset_bottom = -0.160034
 theme = ExtResource("8_wvf7f")
-color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer_MenuButtons" type="VBoxContainer" parent="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel"]
+[node name="VBoxContainer_MenuButtons" type="VBoxContainer" parent="CanvasLayer/ColorRect_GameMenu/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.173
@@ -98,29 +95,41 @@ offset_bottom = -0.144043
 theme = ExtResource("8_wvf7f")
 metadata/_edit_lock_ = true
 
-[node name="Button_Resume" type="Button" parent="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
+[node name="Button_Resume" type="Button" parent="CanvasLayer/ColorRect_GameMenu/Panel/VBoxContainer_MenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("8_wvf7f")
-theme_override_fonts/font = ExtResource("6_510el")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "Resume"
 
-[node name="Button_SaveLoad" type="Button" parent="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
+[node name="Button_SaveLoad" type="Button" parent="CanvasLayer/ColorRect_GameMenu/Panel/VBoxContainer_MenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("8_wvf7f")
-theme_override_fonts/font = ExtResource("6_510el")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "Save/Load"
 
-[node name="Button_Quit" type="Button" parent="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons"]
+[node name="Button_Quit" type="Button" parent="CanvasLayer/ColorRect_GameMenu/Panel/VBoxContainer_MenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("8_wvf7f")
-theme_override_fonts/font = ExtResource("6_510el")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "Quit"
+
+[node name="ProgressBar_PlayerHP" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.234
+anchor_top = 0.002
+anchor_right = 0.766
+anchor_bottom = 0.057
+offset_left = 0.719971
+offset_top = -2.16
+offset_right = -0.720093
+offset_bottom = -1.56001
+theme = ExtResource("7_dr62y")
+value = 50.0
+show_percentage = false
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer_GameLost" type="CanvasLayer" parent="."]
 visible = false
@@ -151,7 +160,6 @@ offset_right = 0.719971
 offset_bottom = -0.52002
 theme = ExtResource("8_wvf7f")
 theme_override_colors/font_color = Color(5.882, 0.078, 0, 1)
-theme_override_fonts/font = ExtResource("8_dr62y")
 theme_override_font_sizes/font_size = 86
 text = "Game lost"
 horizontal_alignment = 1
@@ -165,7 +173,6 @@ offset_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("8_wvf7f")
-theme_override_fonts/font = ExtResource("6_510el")
 theme_override_font_sizes/font_size = 50
 text = "To menu
 "
@@ -179,7 +186,6 @@ offset_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("8_wvf7f")
-theme_override_fonts/font = ExtResource("6_510el")
 theme_override_font_sizes/font_size = 50
 text = "Load"
 
@@ -234,9 +240,9 @@ editor_draw_limits = true
 script = ExtResource("7_teyce")
 
 [connection signal="gui_input" from="CanvasLayer/Minimap" to="." method="_on_minimap_gui_input"]
-[connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Resume" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_resume_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_SaveLoad" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_save_load_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/ColorRect_Panel/VBoxContainer_MenuButtons/Button_Quit" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/Panel/VBoxContainer_MenuButtons/Button_Resume" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/Panel/VBoxContainer_MenuButtons/Button_SaveLoad" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_save_load_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/Panel/VBoxContainer_MenuButtons/Button_Quit" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer_GameLost/ColorRect_BackGround/Button_ToMenu" to="CanvasLayer_GameLost/ColorRect_BackGround" method="_on_button_to_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer_GameLost/ColorRect_BackGround/Button_Load" to="CanvasLayer_GameLost/ColorRect_BackGround" method="_on_button_load_pressed"]
 [connection signal="timeout" from="Node2D_Player/Node2D_Spawner/Timer_SpawnRotate" to="Node2D_Player/Node2D_Spawner" method="_on_timer_spawn_rotate_timeout"]
