@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ab73vgyp5xe"
-path="res://.godot/imported/bug_minimap_icon.png-a3db6b475ff832524ffb195fe03db09a.ctex"
+uid="uid://b1y77ji2vn8mk"
+path="res://.godot/imported/Exp.png-7ddbad31a4f04b48730ad8ac97b0e30f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gameplay/GameObjects/Enemies/EnemyBug/bug_minimap_icon.png"
-dest_files=["res://.godot/imported/bug_minimap_icon.png-a3db6b475ff832524ffb195fe03db09a.ctex"]
+source_file="res://Assets/Pictures/Characters/Exp/Exp.png"
+dest_files=["res://.godot/imported/Exp.png-7ddbad31a4f04b48730ad8ac97b0e30f.ctex"]
 
 [params]
 

@@ -6,6 +6,10 @@ extends Node2D
 @onready var camera : Camera2D = $Camera2D
 @onready var minimap : Control = $CanvasLayer/Minimap
 @onready var game_menu : ColorRect = $CanvasLayer/ColorRect_GameMenu
+@onready var enemies_pool : Node2D = $Node2D_EnemiesPool
+@onready var powerup_pool : Node2D = $Node2D_PowerupPool
+
+@onready var exp_bar_node : ProgressBar = $CanvasLayer/ProgressBar_PlayerExp
 
 @export var back_level1 : PackedScene
 @export var back_level2 : PackedScene
@@ -42,11 +46,16 @@ func _ready() -> void:
 	minimap_RightBotPoint  = minimap_LeftTopPoint + minimap.minimap_parallelogram.size
 	minimap_Inner_LeftTopPoint = minimap.minimap_parallelogram.position
 	minimap_Inner_RightBotPoint = minimap.minimap_parallelogram.position + minimap.minimap_parallelogram.size		
+	
+	# Need to do after minimap is ready
+	enemies_pool.init(self)
+	powerup_pool.init(self)
 		
 	camera.camera_limits = game_field_size	
 	camera.init_on_minimap(minimap)	
 	
-	player_link.init_on_minimap(minimap)	
+	player_link.init(self)
+	#player_link.init_on_minimap(minimap)	
 	
 	SceneControl.game_session = self
 	
@@ -60,13 +69,13 @@ func _ready() -> void:
 			
 		# Загружаем игровые объекты без связей
 		for item in SaveBaseInfo._save_to_load.gameObjects:
-			var scene = load(item.scene_path) as PackedScene
-			var restored_node = scene.instantiate()
-			self.add_child(restored_node)
-			restored_node.on_load_game(item)
-			#restored_node.init_on_minimap(minimap_new)
-			restored_node.init_get_info(self)
-			restored_node.add_to_group("to_save")
+			item.on_load_game(self)
+			#var scene = load(item.scene_path) as PackedScene
+			#var restored_node = scene.instantiate()
+			#self.add_child(restored_node)
+			#restored_node.init_get_info(self)
+			#restored_node.on_load_game(item)
+			#restored_node.add_to_group("to_save")
 			
 		# Теперь можно пройти по объектам и восстановить связи если нужно.
 		# Функция on_load_game_linking будет пустая если не нужно,
@@ -77,6 +86,9 @@ func _ready() -> void:
 		SceneControl.current_scene_state = SceneControl.MySceneState.GAME_PAUSE		
 		#game_menu.toggle_pause()
 		camera.toggle_pause()
+	
+	# Show on minimap if in pause
+	player_link._physics_process(0.0)
 
 @onready var game_lost_panel : ColorRect = $CanvasLayer_GameLost/ColorRect_BackGround
 

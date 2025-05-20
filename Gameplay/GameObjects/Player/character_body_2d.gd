@@ -28,6 +28,10 @@ func _ready() -> void:
 	anim_tree.active = true
 	bat_swing_sprite.play("swing")
 
+func init(game_session : Node2D) -> void:
+	init_on_minimap(game_session.minimap)
+	init_exp_weapon_system(game_session)
+
 func _physics_process(_delta: float) -> void:
 
 	var velocity_dir : Vector2 = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
@@ -181,4 +185,20 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 	else:
 		bat_hit_box.monitoring = false
 		
+#endregion
+
+#region Gathering powerups
+
+@onready var exp_weapon_system : Node2D = $Node2D_ExpWeaponSystem
+
+func  init_exp_weapon_system(game_session : Node2D) -> void:
+	exp_weapon_system.exp_bar_link = game_session.exp_bar_node
+
+func _on_area_2d_gather_powerups_body_entered(body: Node2D) -> void:
+	body.powerup_gathered = true
+	
+func _on_area_2d_absorb_powerups_body_entered(body: Node2D) -> void:
+	exp_weapon_system.gain_powerup(body)
+	body.absorbed()
+	
 #endregion

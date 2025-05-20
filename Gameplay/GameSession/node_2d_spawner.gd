@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var enemy_bug_scene : PackedScene
+@export var enemy_scene : PackedScene
 
-@onready var enemies_node : Node2D = $"../../Node2D_Enemies"
+@onready var enemies_node : Node2D = $"../../Node2D_EnemiesPool"
 
 @onready var map_link : Control = $"../../CanvasLayer/Minimap"
 
@@ -31,11 +31,14 @@ func _on_timer_spawn_attempt_timeout() -> void:
 	if get_world_2d().direct_space_state.intersect_point(p_check, 1):
 		return
 		
-	var new_bug : CharacterBody2D = enemy_bug_scene.instantiate()
-	new_bug.add_to_group("to_save")
-	new_bug.position = p_check.position
-	new_bug.init_on_minimap(map_link) 
-	enemies_node.add_child(new_bug)	
+	var new_bug_info = EnemyBugSave.new()
+	new_bug_info.health = 100.0
+	new_bug_info.pos = p_check.position
+	SceneControl.game_session.enemies_pool.activate_enemy(new_bug_info)
+	#new_bug.add_to_group("to_save")
+	#new_bug.position = p_check.position
+	#new_bug.init_on_minimap(map_link) 
+	#enemies_node.add_child(new_bug)	
 	
 func _on_timer_spawn_rotate_timeout() -> void:
 	spawn_pos = spawn_pos + spawn_move_speed

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c1uuw3fhbal56"]
+[gd_scene load_steps=34 format=3 uid="uid://c1uuw3fhbal56"]
 
 [ext_resource type="Texture2D" uid="uid://d0q1scmn6kvch" path="res://Assets/Pictures/Characters/Player/kid-male-spritesheet.png" id="1_etymb"]
 [ext_resource type="Script" uid="uid://d1nsymd1ty65n" path="res://Gameplay/GameObjects/Player/character_body_2d.gd" id="1_tv2e5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://w27j8e7ys4d2" path="res://Assets/Pictures/Tilesets/bat-swing-3.png" id="6_i7w8i"]
 [ext_resource type="Theme" uid="uid://dqj6mldu4o750" path="res://Assets/Themes/HPbars.tres" id="6_u1jrt"]
 [ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="7_i7w8i"]
+[ext_resource type="Script" uid="uid://cxaockkewnp8h" path="res://Gameplay/GameObjects/Player/node_2d_exp_weapon_system.gd" id="8_i7w8i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etymb"]
 radius = 8.0
@@ -357,6 +358,13 @@ radius = 31.0161
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkia7"]
 radius = 16.0312
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7w8i"]
+radius = 59.4138
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1jrt"]
+radius = 8.0
+height = 32.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(0, -1)
 motion_mode = 1
@@ -416,6 +424,20 @@ collision_mask = 2
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_hkia7")
 
+[node name="Area2D_GatherPowerups" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_GatherPowerups"]
+shape = SubResource("CircleShape2D_i7w8i")
+
+[node name="Area2D_AbsorbPowerups" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_AbsorbPowerups"]
+shape = SubResource("CapsuleShape2D_u1jrt")
+
 [node name="Timer_ContactDamage" type="Timer" parent="."]
 
 [node name="ProgressBar_HP" type="ProgressBar" parent="."]
@@ -429,8 +451,13 @@ theme_override_font_sizes/font_size = 8
 value = 100.0
 show_percentage = false
 
+[node name="Node2D_ExpWeaponSystem" type="Node2D" parent="."]
+script = ExtResource("8_i7w8i")
+
 [connection signal="frame_changed" from="Node2D_BatSwing/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="Node2D_BatSwing/Area2D_HitBox" to="." method="_on_area_2d_hit_box_body_entered"]
 [connection signal="body_entered" from="Area2D_HurtBox" to="." method="_on_area_2d_hurt_box_body_entered"]
 [connection signal="body_exited" from="Area2D_HurtBox" to="." method="_on_area_2d_hurt_box_body_exited"]
+[connection signal="body_entered" from="Area2D_GatherPowerups" to="." method="_on_area_2d_gather_powerups_body_entered"]
+[connection signal="body_entered" from="Area2D_AbsorbPowerups" to="." method="_on_area_2d_absorb_powerups_body_entered"]
 [connection signal="timeout" from="Timer_ContactDamage" to="." method="_on_timer_contact_damage_timeout"]

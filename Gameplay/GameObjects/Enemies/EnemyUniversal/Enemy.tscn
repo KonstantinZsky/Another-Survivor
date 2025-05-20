@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://2v07gfgqft8j"]
 
-[ext_resource type="Texture2D" uid="uid://bn4ffj7b4qveg" path="res://Assets/Pictures/Characters/Enemies/4eyebug-spritesheet.png" id="1_trc6n"]
-[ext_resource type="Script" uid="uid://cc44mm6xwpwx1" path="res://Gameplay/GameObjects/Enemies/EnemyBug/enemy_bug.gd" id="1_x8wjy"]
-[ext_resource type="Theme" uid="uid://dqj6mldu4o750" path="res://Assets/Themes/HPbars.tres" id="3_dkyvb"]
-[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="4_3ltbx"]
+[ext_resource type="Script" uid="uid://cc44mm6xwpwx1" path="res://Gameplay/GameObjects/Enemies/EnemyUniversal/enemy.gd" id="1_kol3v"]
+[ext_resource type="Texture2D" uid="uid://bn4ffj7b4qveg" path="res://Assets/Pictures/Characters/Enemies/4eyebug-spritesheet.png" id="2_y2t7g"]
+[ext_resource type="Theme" uid="uid://dqj6mldu4o750" path="res://Assets/Themes/HPbars.tres" id="3_8dqe4"]
+[ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="4_1e4g5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8wjy"]
 radius = 15.0
@@ -153,14 +153,14 @@ _data = {
 &"take_damage": SubResource("Animation_x8wjy")
 }
 
-[node name="CharacterBody2D_EnemyBug" type="CharacterBody2D"]
+[node name="CharacterBody2D_Enemy" type="CharacterBody2D"]
 collision_layer = 3
 motion_mode = 1
-script = ExtResource("1_x8wjy")
+script = ExtResource("1_kol3v")
 contact_damage_to_player = 34.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_trc6n")
+texture = ExtResource("2_y2t7g")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -186,8 +186,8 @@ offset_left = -15.0
 offset_top = 17.0
 offset_right = 15.0
 offset_bottom = 24.0
-theme = ExtResource("3_dkyvb")
-theme_override_fonts/font = ExtResource("4_3ltbx")
+theme = ExtResource("3_8dqe4")
+theme_override_fonts/font = ExtResource("4_1e4g5")
 theme_override_font_sizes/font_size = 8
 value = 100.0
 show_percentage = false

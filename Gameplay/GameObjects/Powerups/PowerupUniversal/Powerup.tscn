@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://cya4pr32280kh"]
+
+[ext_resource type="Script" uid="uid://cax7sar4dp7bp" path="res://Gameplay/GameObjects/Powerups/PowerupUniversal/powerup.gd" id="1_2a3xp"]
+[ext_resource type="Texture2D" uid="uid://b1y77ji2vn8mk" path="res://Assets/Pictures/Characters/Exp/Exp.png" id="2_2a3xp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8wjy"]
+radius = 15.0
+
+[sub_resource type="Animation" id="Animation_dkyvb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ggbx4"]
+resource_name = "run_left"
+length = 0.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, -0.349066, -0.523599]
+}
+
+[sub_resource type="Animation" id="Animation_2a3xp"]
+resource_name = "run_right"
+length = 0.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, 0.349066, 0.523599]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ltbx"]
+_data = {
+&"RESET": SubResource("Animation_dkyvb"),
+&"run_left": SubResource("Animation_ggbx4"),
+&"run_right": SubResource("Animation_2a3xp")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x8wjy"]
+animation = &"run_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ggbx4"]
+animation = &"run_right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_dkyvb"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_x8wjy")
+blend_point_0/pos = -0.9
+blend_point_1/node = SubResource("AnimationNodeAnimation_ggbx4")
+blend_point_1/pos = 1.0
+min_space = -0.9
+
+[node name="CharacterBody2D_Powerup" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_2a3xp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_2a3xp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x8wjy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3ltbx")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendSpace1D_dkyvb")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = -0.000906825

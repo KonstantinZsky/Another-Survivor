@@ -6,8 +6,20 @@ extends CharacterBody2D
 var dir_to_player : Vector2 = Vector2(0.0,0.0)
 
 @export var move_speed : float = 50.0 # 3 times less then player
-
+@export var exp_spawn_range : float = 20.0
 @export var contact_damage_to_player : float = 10.0
+
+# For object pooling
+func _ready() -> void:
+	self.set_physics_process(false)
+	self.visible = false
+	self.position = Vector2(-2000.0,-2000.0)
+	
+func reset() -> void:
+	self.hide_on_minimap()
+	self.set_physics_process(false)
+	self.visible = false
+	self.position = Vector2(-2000.0,-2000.0)
 
 func update_animation_parametrs() -> void:
 	anim_tree["parameters/blend_position"] = dir_to_player.x
@@ -45,8 +57,12 @@ func get_hit(dmg : float, knockback_t : float, knockback_s : float) -> void:
 	monster_health = monster_health - dmg
 	if monster_health < 0:
 		# Death animation??
-		minimap_node_link.queue_free()
-		queue_free()
+		spawn_expirience()
+		SceneControl.game_session.enemies_pool.kill_enemy(self)
+		# object pool !!!
+		return
+		#minimap_node_link.queue_free()
+		#queue_free()
 	knockback_state = true
 	knockback_speed = knockback_s
 	damage_anim.play("take_damage")
@@ -54,12 +70,19 @@ func get_hit(dmg : float, knockback_t : float, knockback_s : float) -> void:
 	
 func _on_timer_knockback_timeout() -> void:
 	knockback_state = false
+	
+func spawn_expirience() -> void:
+	var rnd_point = (Vector2.RIGHT * randf_range(0, exp_spawn_range)).rotated(randf_range(0, 2*PI))
+	var new_powerup_dat = PowerupSave.new()
+	new_powerup_dat.type = PowerupSave.PowerupType.EXPIRIENCE
+	new_powerup_dat.pos = rnd_point + global_position
+	SceneControl.game_session.powerup_pool.activate_powerup(new_powerup_dat) 	
 		
 #endregion
 
 #region Minimap
 # Картинка корабля игрока для миникарты 
-var minimap_picture : CompressedTexture2D = load("res://Gameplay/GameObjects/Enemies/EnemyBug/bug_minimap_icon.png")
+var minimap_picture : CompressedTexture2D = load("res://Gameplay/GameObjects/Enemies/EnemyUniversal/bug_minimap_icon.png")
 var minimap_link : Control = null
 # Ссылка на корабль на миникарте, чтобы знать что двигать
 var minimap_node_link : Node2D = null
@@ -72,6 +95,12 @@ func init_on_minimap(map_link : Control) -> void:
 	
 func move_on_minimap() -> void:
 	minimap_link.move_sprite(minimap_node_link,self.position,0.0)	
+	
+func show_on_minimap() -> void:
+	minimap_node_link.visible = true
+	
+func hide_on_minimap() -> void:
+	minimap_node_link.visible = false
 #endregion
 
 #region Save Load
@@ -79,18 +108,18 @@ func move_on_minimap() -> void:
 
 # Gets all needed info from game session
 # Called on object loading, linking to game session objects
-func init_get_info(game_session) -> void:
-	init_on_minimap(game_session.minimap)	
+func init_get_info(game_session : Node2D) -> void:
+	init_on_minimap(game_session.minimap)
 
 func on_save_game(saved_data : Array[BaseSaveObject]) -> void:
 	var my_data = EnemyBugSave.new()
 	my_data.pos = global_position
-	my_data.scene_path = scene_file_path
+	#my_data.scene_path = scene_file_path
 	my_data.health = monster_health	
 	
 	saved_data.append(my_data)
-
-func on_load_game(saved_data : BaseSaveObject) -> void:
+	
+func init(saved_data : BaseSaveObject) -> void:
 	var my_data : EnemyBugSave = saved_data as EnemyBugSave
 	global_position = my_data.pos
 	monster_health = my_data.health
