@@ -28,16 +28,17 @@
 <picture>
  <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/minimap.png" alt="qr"/>
 </picture>
-### Базовые игровые механики
-Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока. Урон и здоровье игрока и противников, анимация движения, покоя, анимация получения урона, анимация удара игрока. Анимации реализованы при помощи **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**.<br/>
-Использованные бесплатные ассеты:<br/>
+### Реализованные игровые механики
+Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока. Урон и здоровье игрока и противников, анимация движения, покоя, анимация получения урона, анимация удара игрока. Анимации реализованы при помощи **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**. **Object pool** для противников и усилений. Дроп опыта, накопление опыта.
+### Использованные бесплатные ассеты
 https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack<br/>
 https://opengameart.org/content/outdoor-tileset-0<br/>
 https://opengameart.org/content/cyberpunk-noir-tileset<br/>
 https://itch.io/queue/c/733269/godot-pixel-fonts?game_id=718254<br/>
+https://opengameart.org/content/browserquest-sprites-and-tiles
+https://github.com/mozilla/BrowserQuest
 ## TO DO
-- Система накопления опыта и повышения уровня игрока. Выбор нового оружия и пассивных навыков при повышении уровня.
+- Система повышения уровня игрока. Выбор нового оружия и пассивных навыков при повышении уровня.
 - Новые противники, повышение сложности с течением времени, счетчик времени игровой сессии.
-- Object pool для противников, снарядов.
 - Босс с состояниями реализованными через state machine. У меня уже есть опыт использования state machine<br/>
 и т.д.
