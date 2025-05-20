@@ -35,8 +35,8 @@ https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack<br/>
 https://opengameart.org/content/outdoor-tileset-0<br/>
 https://opengameart.org/content/cyberpunk-noir-tileset<br/>
 https://itch.io/queue/c/733269/godot-pixel-fonts?game_id=718254<br/>
-https://opengameart.org/content/browserquest-sprites-and-tiles
-https://github.com/mozilla/BrowserQuest
+https://opengameart.org/content/browserquest-sprites-and-tiles<br/>
+https://github.com/mozilla/BrowserQuest<br/>
 ## TO DO
 - Система повышения уровня игрока. Выбор нового оружия и пассивных навыков при повышении уровня.
 - Новые противники, повышение сложности с течением времени, счетчик времени игровой сессии.
