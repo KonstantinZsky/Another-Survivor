@@ -259,6 +259,7 @@ func _on_button_save_pressed() -> void:
 		Settings.saveGlobalSettings()
 		TranslationServer.set_locale(_settings_local.language)
 		Logging.logg("Опции закрыты",Logging.MessageType.INFO)	
+		#get_tree().reload_current_scene() # does nothing
 	else:
 		_settings_local = Settings.settings_global.duplicate(true)
 	

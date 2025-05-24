@@ -8,14 +8,18 @@ func _process(_delta: float) -> void:
 
 func toggle_pause() -> void:
 	var pause : bool = get_tree().paused
-	# If game paused normally - do nothing (menu not opened)
-	if SceneControl.current_scene_state == SceneControl.MySceneState.GAME_PAUSE:
-		return
-	# Cant unpause if game is lost
-	if SceneControl.current_scene_state == SceneControl.MySceneState.GAME_LOST:		
-		return
-	#if (pause && !game_session.menu_paused):
+	## If game paused normally - do nothing (menu not opened)
+	#if SceneControl.current_scene_state == SceneControl.MySceneState.GAME_PAUSE:
 		#return
+	## Cant unpause if game is lost
+	#if SceneControl.current_scene_state == SceneControl.MySceneState.GAME_LOST:		
+		#return
+	
+	# Only 2 cases when we toggle pause here
+	if (SceneControl.current_scene_state != SceneControl.MySceneState.GAME_MENU)&&(
+		SceneControl.current_scene_state != SceneControl.MySceneState.GAME_ACTIVE):
+		return
+
 	# If save menu opened - close it
 	if SceneControl.save_menu_opened:
 		SaveWindow.switch_load_visibility()

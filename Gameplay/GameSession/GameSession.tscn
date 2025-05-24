@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://bk4u4nws2bquo"]
+[gd_scene load_steps=20 format=3 uid="uid://bk4u4nws2bquo"]
 
 [ext_resource type="Script" uid="uid://dnye5aila2eb3" path="res://Gameplay/GameSession/game_session.gd" id="1_dbrhr"]
 [ext_resource type="PackedScene" uid="uid://ct5yd3le6ou35" path="res://Gameplay/GameSession/1_forest_map.tscn" id="1_hcmc7"]
 [ext_resource type="PackedScene" uid="uid://c1uuw3fhbal56" path="res://Gameplay/GameObjects/Player/Player.tscn" id="2_dbrhr"]
 [ext_resource type="PackedScene" uid="uid://de1wy6g7hst8i" path="res://Gameplay/GameSession/2_lab_map.tscn" id="3_5v6i5"]
+[ext_resource type="Texture2D" uid="uid://dr8epqwn7v3bf" path="res://Assets/Pictures/UI/SkillPanel/Skill.png" id="5_66dui"]
 [ext_resource type="PackedScene" uid="uid://cu3ray61esnns" path="res://Gameplay/UI/Minimap/Minimap.tscn" id="5_p1xu7"]
 [ext_resource type="Script" uid="uid://bl1icpjxis8dl" path="res://Gameplay/GameSession/node_2d_spawner.gd" id="5_r76vg"]
 [ext_resource type="Script" uid="uid://b5lfdl6sj62l" path="res://Gameplay/GameSession/color_rect_game_menu.gd" id="6_dr62y"]
+[ext_resource type="Texture2D" uid="uid://dbirvtofvyeq2" path="res://Assets/Pictures/UI/SkillPanel/Passive.png" id="6_yuqyn"]
 [ext_resource type="Theme" uid="uid://c4w53nyhhtaps" path="res://Assets/Themes/AlternativeUI.tres" id="7_dr62y"]
 [ext_resource type="Script" uid="uid://cf4mnmnx8wyju" path="res://Gameplay/GameSession/camera_2d.gd" id="7_teyce"]
 [ext_resource type="Script" uid="uid://btwhui6gj01p6" path="res://Gameplay/GameSession/color_rect_back_ground.gd" id="8_mpxh5"]
@@ -14,6 +16,7 @@
 [ext_resource type="Script" uid="uid://d2gwfwel3623x" path="res://Gameplay/GameSession/node_2d_powerup_pool.gd" id="9_651j2"]
 [ext_resource type="Script" uid="uid://copyfbpgdhjvr" path="res://Gameplay/GameSession/node_2d_enemies_pool.gd" id="9_mpxh5"]
 [ext_resource type="PackedScene" uid="uid://cya4pr32280kh" path="res://Gameplay/GameObjects/Powerups/PowerupUniversal/Powerup.tscn" id="10_3meib"]
+[ext_resource type="Script" uid="uid://c37qqt6igsmbr" path="res://Gameplay/GameSession/canvas_layer_new_level.gd" id="11_yuqyn"]
 [ext_resource type="PackedScene" uid="uid://2v07gfgqft8j" path="res://Gameplay/GameObjects/Enemies/EnemyUniversal/Enemy.tscn" id="12_mpxh5"]
 
 [sub_resource type="Curve2D" id="Curve2D_ntxu8"]
@@ -29,14 +32,169 @@ back_level2 = ExtResource("3_5v6i5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.069
+anchor_right = 0.219
+anchor_bottom = 0.255
+offset_left = 0.799999
+offset_top = 0.479996
+offset_right = -0.480011
+offset_bottom = -0.400024
+theme = ExtResource("8_wvf7f")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer_SkillsPassives" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer_Skills" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8_wvf7f")
+
+[node name="TextureRect_SkillSlot1" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills"]
+self_modulate = Color(1, 1, 1, 0.356863)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_66dui")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+text = "1"
+vertical_alignment = 2
+
+[node name="TextureRect_SkillSlot2" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills"]
+self_modulate = Color(1, 1, 1, 0.356863)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_66dui")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+vertical_alignment = 2
+
+[node name="TextureRect_SkillSlot3" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills"]
+self_modulate = Color(1, 1, 1, 0.356863)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_66dui")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+vertical_alignment = 2
+
+[node name="HBoxContainer_Passives" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8_wvf7f")
+
+[node name="TextureRect_PassivelSlot1" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives"]
+self_modulate = Color(1, 1, 1, 0.356863)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_yuqyn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+vertical_alignment = 2
+
+[node name="TextureRect_PassivelSlot2" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives"]
+self_modulate = Color(1, 1, 1, 0.356863)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_yuqyn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+vertical_alignment = 2
+
+[node name="TextureRect_PassivelSlot3" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives"]
+self_modulate = Color(1, 1, 1, 0.356863)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_yuqyn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+vertical_alignment = 2
+
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 10.0
-offset_top = 93.0
+offset_top = 308.0
 offset_right = 453.0
-offset_bottom = 158.0
+offset_bottom = 373.0
 theme = ExtResource("8_wvf7f")
 text = "P - pase game (free camera)
 Esq - menu"
+metadata/_edit_lock_ = true
 
 [node name="Label_GamePaused" type="Label" parent="CanvasLayer"]
 visible = false
@@ -121,14 +279,9 @@ text = "Quit"
 
 [node name="ProgressBar_PlayerExp" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.234
-anchor_top = 0.002
-anchor_right = 0.766
+anchor_right = 1.0
 anchor_bottom = 0.057
-offset_left = 0.719971
-offset_top = -2.16
-offset_right = -0.720093
-offset_bottom = -1.56001
+offset_bottom = -1.56
 theme = ExtResource("7_dr62y")
 show_percentage = false
 metadata/_edit_lock_ = true
@@ -190,6 +343,135 @@ size_flags_vertical = 3
 theme = ExtResource("8_wvf7f")
 theme_override_font_sizes/font_size = 50
 text = "Load"
+
+[node name="CanvasLayer_NewLevel" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("11_yuqyn")
+
+[node name="Panel_NewLevel" type="Panel" parent="CanvasLayer_NewLevel"]
+anchors_preset = -1
+anchor_left = 0.266
+anchor_top = 0.167
+anchor_right = 0.734
+anchor_bottom = 0.815
+offset_left = -0.720001
+offset_top = -0.360016
+offset_right = 0.719971
+offset_bottom = -0.200073
+theme = ExtResource("8_wvf7f")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer_NewLevel/Panel_NewLevel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.278
+anchor_top = 0.059
+anchor_right = 0.722
+anchor_bottom = 0.179
+offset_left = -0.200027
+offset_top = 3.7
+offset_right = 0.199951
+offset_bottom = -0.300003
+theme = ExtResource("7_dr62y")
+text = "LevelUP!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer_NewLevel/Panel_NewLevel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.179
+anchor_right = 0.889
+anchor_bottom = 0.321
+offset_left = 0.0999908
+offset_top = -0.300003
+offset_right = -0.100037
+offset_bottom = 0.299988
+theme = ExtResource("7_dr62y")
+text = "Choose new ability:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer_Abilities" type="HBoxContainer" parent="CanvasLayer_NewLevel/Panel_NewLevel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.317
+anchor_right = 0.944
+anchor_bottom = 0.674
+offset_left = -0.400002
+offset_top = 0.100006
+offset_right = 0.399963
+offset_bottom = 0.199982
+size_flags_vertical = 3
+theme = ExtResource("8_wvf7f")
+
+[node name="TextureRect_SkillSlot1" type="TextureRect" parent="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_wvf7f")
+texture = ExtResource("5_66dui")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities/TextureRect_SkillSlot1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+text = "1"
+vertical_alignment = 2
+
+[node name="TextureRect_SkillSlot2" type="TextureRect" parent="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_wvf7f")
+texture = ExtResource("5_66dui")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities/TextureRect_SkillSlot2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+vertical_alignment = 2
+
+[node name="TextureRect_SkillSlot3" type="TextureRect" parent="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_wvf7f")
+texture = ExtResource("5_66dui")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities/TextureRect_SkillSlot3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.918
+offset_left = -0.0470009
+offset_top = -0.00800323
+offset_right = -0.0209999
+offset_bottom = -0.0460052
+theme = ExtResource("8_wvf7f")
+vertical_alignment = 2
 
 [node name="Node2D_Background" type="Node2D" parent="."]
 
@@ -253,6 +535,9 @@ script = ExtResource("7_teyce")
 [connection signal="pressed" from="CanvasLayer/ColorRect_GameMenu/Panel/VBoxContainer_MenuButtons/Button_Quit" to="CanvasLayer/ColorRect_GameMenu" method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer_GameLost/ColorRect_BackGround/Button_ToMenu" to="CanvasLayer_GameLost/ColorRect_BackGround" method="_on_button_to_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer_GameLost/ColorRect_BackGround/Button_Load" to="CanvasLayer_GameLost/ColorRect_BackGround" method="_on_button_load_pressed"]
+[connection signal="gui_input" from="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities/TextureRect_SkillSlot1" to="CanvasLayer_NewLevel" method="_on_texture_rect_skill_slot_1_gui_input"]
+[connection signal="gui_input" from="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities/TextureRect_SkillSlot2" to="CanvasLayer_NewLevel" method="_on_texture_rect_skill_slot_2_gui_input"]
+[connection signal="gui_input" from="CanvasLayer_NewLevel/Panel_NewLevel/HBoxContainer_Abilities/TextureRect_SkillSlot3" to="CanvasLayer_NewLevel" method="_on_texture_rect_skill_slot_3_gui_input"]
 [connection signal="timeout" from="Node2D_Player/Node2D_Spawner/Timer_SpawnRotate" to="Node2D_Player/Node2D_Spawner" method="_on_timer_spawn_rotate_timeout"]
 [connection signal="timeout" from="Node2D_Player/Node2D_Spawner/Timer_SpawnAttempt" to="Node2D_Player/Node2D_Spawner" method="_on_timer_spawn_attempt_timeout"]
 [connection signal="timeout" from="Node2D_Player/Node2D_Spawner/Timer_SpawnAddCount" to="Node2D_Player/Node2D_Spawner" method="_on_timer_spawn_add_count_timeout"]

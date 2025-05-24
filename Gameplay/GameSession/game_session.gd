@@ -16,6 +16,42 @@ extends Node2D
 
 var game_field_size : Vector2 = Vector2(0.0,0.0)
 
+# Skill and passives UI
+@onready var skills_ui_arr : Array = [
+	{
+		icon_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot1,
+		level_n_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot1/Label,
+		occupied = false
+	},
+	{
+		icon_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot2,
+		level_n_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot2/Label,
+		occupied = false
+	},
+	{
+		icon_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot3,
+		level_n_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Skills/TextureRect_SkillSlot3/Label,
+		occupied = false
+	}
+]
+@onready var passives_ui_arr : Array = [
+	{
+		icon_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot1,
+		level_n_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot1/Label,
+		occupied = false
+	},	
+	{
+		icon_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot2,
+		level_n_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot2/Label,
+		occupied = false
+	},
+	{
+		icon_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot3,
+		level_n_node = $CanvasLayer/MarginContainer/VBoxContainer_SkillsPassives/HBoxContainer_Passives/TextureRect_PassivelSlot3/Label,
+		occupied = false
+	},
+]
+
 func _ready() -> void:
 	
 	var level_to_Load : int = 0
@@ -89,6 +125,13 @@ func _ready() -> void:
 	
 	# Show on minimap if in pause
 	player_link._physics_process(0.0)
+
+@onready var new_level_panel : CanvasLayer = $CanvasLayer_NewLevel
+func new_level(variants : Array) -> void:
+	new_level_panel.new_level( variants )
+func upgrade_chosen(variant) -> void:
+	player_link.upgrade_chosen(variant)
+
 
 @onready var game_lost_panel : ColorRect = $CanvasLayer_GameLost/ColorRect_BackGround
 

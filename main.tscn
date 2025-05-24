@@ -15,10 +15,13 @@ grow_vertical = 2
 theme = ExtResource("1_7mycd")
 script = ExtResource("1_lquwl")
 
-[node name="MenuBackground" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
+[node name="CanvasLayer_Background" type="CanvasLayer" parent="."]
+
+[node name="TextureRect_Background" type="TextureRect" parent="CanvasLayer_Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource("1_ig7tw")
-metadata/_edit_lock_ = true
 
 [node name="CanvasLayer_MainMenu" type="CanvasLayer" parent="."]
 

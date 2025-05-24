@@ -93,6 +93,7 @@ CheckButton/styles/hover = SubResource("StyleBoxEmpty_wup7m")
 CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_hq5pu")
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_cgey2")
 CheckButton/styles/pressed = SubResource("StyleBoxEmpty_4p5ha")
+HBoxContainer/constants/separation = 36
 Label/fonts/font = ExtResource("4_238rc")
 OptionButton/font_sizes/font_size = 60
 OptionButton/fonts/font = ExtResource("4_238rc")

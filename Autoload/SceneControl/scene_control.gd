@@ -24,7 +24,10 @@ var lvl2_game_field_size : Vector2 = Vector2(800.0,600.0)
 
 @export var _it_is_load = false
 
-enum MySceneState {MAIN_MENU,MAIN_MENU_OPTIONS,MAIN_MENU_LEVEL,GAME_ACTIVE,GAME_PAUSE,GAME_MENU,GAME_LOST}
+enum MySceneState {MAIN_MENU,MAIN_MENU_OPTIONS,MAIN_MENU_LEVEL,GAME_ACTIVE,GAME_PAUSE,GAME_MENU,GAME_LVLUP_PAUSE,GAME_LOST}
+
+# LVLup upgrades types, for messaging between UI and weapon expirience system
+enum UpgradesTypes {NEW_ABILITY, NEW_PASSIVE, ABILITY_LVLUP, PASSIVE_LVLUP}
 
 var current_scene_state : MySceneState = MySceneState.MAIN_MENU  : set = _set_game_state
 

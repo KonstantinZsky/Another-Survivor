@@ -1,13 +1,21 @@
-[gd_scene load_steps=34 format=3 uid="uid://c1uuw3fhbal56"]
+[gd_scene load_steps=46 format=3 uid="uid://c1uuw3fhbal56"]
 
 [ext_resource type="Texture2D" uid="uid://d0q1scmn6kvch" path="res://Assets/Pictures/Characters/Player/kid-male-spritesheet.png" id="1_etymb"]
 [ext_resource type="Script" uid="uid://d1nsymd1ty65n" path="res://Gameplay/GameObjects/Player/character_body_2d.gd" id="1_tv2e5"]
 [ext_resource type="Texture2D" uid="uid://35x2upkm4bl0" path="res://Assets/Pictures/Tilesets/bat-swing-1.png" id="4_4cjus"]
 [ext_resource type="Texture2D" uid="uid://chj3u2gcjfdoj" path="res://Assets/Pictures/Tilesets/bat-swing-2.png" id="5_u1jrt"]
+[ext_resource type="Script" uid="uid://dctoo17g16nlv" path="res://Gameplay/GameObjects/Player/node_2d_bat_swing.gd" id="6_ce8gb"]
 [ext_resource type="Texture2D" uid="uid://w27j8e7ys4d2" path="res://Assets/Pictures/Tilesets/bat-swing-3.png" id="6_i7w8i"]
+[ext_resource type="Texture2D" uid="uid://yirhm4otg8lr" path="res://Assets/Pictures/UI/SkillPanel/bullet-bill_damage.png" id="6_nm1h5"]
 [ext_resource type="Theme" uid="uid://dqj6mldu4o750" path="res://Assets/Themes/HPbars.tres" id="6_u1jrt"]
+[ext_resource type="Script" uid="uid://nr7wcl60fcgv" path="res://Gameplay/GameObjects/Player/WeaponSystemClasses/weapon_stats_class.gd" id="7_1yyat"]
+[ext_resource type="Script" uid="uid://dxsg6rd51oc4w" path="res://Gameplay/GameObjects/Player/WeaponSystemClasses/passive_stats_class.gd" id="7_f48yh"]
 [ext_resource type="FontFile" uid="uid://bptvgj4r8mdoh" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="7_i7w8i"]
+[ext_resource type="Resource" uid="uid://dasy540ike4tb" path="res://Gameplay/GameObjects/Player/WeaponGlobalModifires.tres" id="7_iao5o"]
+[ext_resource type="Texture2D" uid="uid://y0abg6vfpw5v" path="res://Assets/Pictures/UI/SkillPanel/clockwork_cooldown.png" id="8_2k83u"]
 [ext_resource type="Script" uid="uid://cxaockkewnp8h" path="res://Gameplay/GameObjects/Player/node_2d_exp_weapon_system.gd" id="8_i7w8i"]
+[ext_resource type="Texture2D" uid="uid://dfsnisn1w7380" path="res://Assets/Pictures/UI/SkillPanel/icon-bat.png" id="8_pkw21"]
+[ext_resource type="Texture2D" uid="uid://b4pixnbillcmw" path="res://Assets/Pictures/UI/SkillPanel/ammonite-fossil_area.png" id="9_7gbd8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etymb"]
 radius = 8.0
@@ -314,6 +322,54 @@ _data = {
 &"take_damage": SubResource("Animation_u1jrt")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkia7"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7w8i"]
+radius = 59.4138
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1jrt"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="Resource" id="Resource_1v357"]
+script = ExtResource("7_f48yh")
+current_level = 0
+picture = ExtResource("6_nm1h5")
+global_damage_modifire_per_level = 1.05
+global_cooldown_modifire_per_level = 1.0
+global_scale_modifire_per_level = 1.0
+metadata/_custom_type_script = "uid://dxsg6rd51oc4w"
+
+[sub_resource type="Resource" id="Resource_gd5vw"]
+script = ExtResource("7_f48yh")
+current_level = 0
+picture = ExtResource("8_2k83u")
+global_damage_modifire_per_level = 1.0
+global_cooldown_modifire_per_level = 1.05
+global_scale_modifire_per_level = 1.0
+metadata/_custom_type_script = "uid://dxsg6rd51oc4w"
+
+[sub_resource type="Resource" id="Resource_7jnoq"]
+script = ExtResource("7_f48yh")
+current_level = 0
+picture = ExtResource("9_7gbd8")
+global_damage_modifire_per_level = 1.0
+global_cooldown_modifire_per_level = 1.0
+global_scale_modifire_per_level = 1.05
+metadata/_custom_type_script = "uid://dxsg6rd51oc4w"
+
+[sub_resource type="Resource" id="Resource_iao5o"]
+script = ExtResource("7_1yyat")
+current_level = 1
+picture = ExtResource("8_pkw21")
+base_damage = 40.0
+percent_damage_increase_with_level = 1.05
+percent_speed_increase_with_level = 1.05
+percent_scale_increase_with_level = 1.05
+link_to_global_modifires = ExtResource("7_iao5o")
+metadata/_custom_type_script = "uid://nr7wcl60fcgv"
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ce8gb"]
 animations = [{
 "frames": [{
@@ -355,16 +411,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1jrt"]
 radius = 31.0161
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hkia7"]
-radius = 16.0312
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_i7w8i"]
-radius = 59.4138
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1jrt"]
-radius = 8.0
-height = 32.0
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(0, -1)
 motion_mode = 1
@@ -395,26 +441,6 @@ parameters/Move/blend_position = 0.6
 libraries = {
 &"": SubResource("AnimationLibrary_ce8gb")
 }
-
-[node name="Node2D_BatSwing" type="Node2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_BatSwing"]
-z_index = 2
-position = Vector2(40, 0)
-scale = Vector2(1, 2)
-sprite_frames = SubResource("SpriteFrames_ce8gb")
-animation = &"swing"
-frame = 1
-
-[node name="Area2D_HitBox" type="Area2D" parent="Node2D_BatSwing"]
-collision_layer = 0
-collision_mask = 2
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D_BatSwing/Area2D_HitBox"]
-position = Vector2(49, 14)
-shape = SubResource("CircleShape2D_u1jrt")
 
 [node name="Area2D_HurtBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -451,13 +477,40 @@ theme_override_font_sizes/font_size = 8
 value = 100.0
 show_percentage = false
 
-[node name="Node2D_ExpWeaponSystem" type="Node2D" parent="."]
+[node name="Node2D_ExpWeaponSystem" type="Node2D" parent="." node_paths=PackedStringArray("weapon1")]
 script = ExtResource("8_i7w8i")
+weapon1 = NodePath("Node2D_BatSwing")
+passive1 = SubResource("Resource_1v357")
+passive2 = SubResource("Resource_gd5vw")
+passive3 = SubResource("Resource_7jnoq")
+weapon_global_modifires = ExtResource("7_iao5o")
 
-[connection signal="frame_changed" from="Node2D_BatSwing/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
-[connection signal="body_entered" from="Node2D_BatSwing/Area2D_HitBox" to="." method="_on_area_2d_hit_box_body_entered"]
+[node name="Node2D_BatSwing" type="Node2D" parent="Node2D_ExpWeaponSystem"]
+script = ExtResource("6_ce8gb")
+bat_stats = SubResource("Resource_iao5o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_ExpWeaponSystem/Node2D_BatSwing"]
+z_index = 2
+position = Vector2(40, 0)
+scale = Vector2(1, 2)
+sprite_frames = SubResource("SpriteFrames_ce8gb")
+animation = &"swing"
+frame = 1
+
+[node name="Area2D_HitBox" type="Area2D" parent="Node2D_ExpWeaponSystem/Node2D_BatSwing"]
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D_ExpWeaponSystem/Node2D_BatSwing/Area2D_HitBox"]
+position = Vector2(49, 14)
+shape = SubResource("CircleShape2D_u1jrt")
+
 [connection signal="body_entered" from="Area2D_HurtBox" to="." method="_on_area_2d_hurt_box_body_entered"]
 [connection signal="body_exited" from="Area2D_HurtBox" to="." method="_on_area_2d_hurt_box_body_exited"]
 [connection signal="body_entered" from="Area2D_GatherPowerups" to="." method="_on_area_2d_gather_powerups_body_entered"]
 [connection signal="body_entered" from="Area2D_AbsorbPowerups" to="." method="_on_area_2d_absorb_powerups_body_entered"]
 [connection signal="timeout" from="Timer_ContactDamage" to="." method="_on_timer_contact_damage_timeout"]
+[connection signal="frame_changed" from="Node2D_ExpWeaponSystem/Node2D_BatSwing/AnimatedSprite2D" to="Node2D_ExpWeaponSystem/Node2D_BatSwing" method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="body_entered" from="Node2D_ExpWeaponSystem/Node2D_BatSwing/Area2D_HitBox" to="Node2D_ExpWeaponSystem/Node2D_BatSwing" method="_on_area_2d_hit_box_body_entered"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponGlobalModifiresClass" load_steps=2 format=3 uid="uid://dasy540ike4tb"]
+
+[ext_resource type="Script" uid="uid://cgrq1jmuupyqk" path="res://Gameplay/GameObjects/Player/WeaponSystemClasses/weapon_global_modifires_class.gd" id="1_6vh8m"]
+
+[resource]
+script = ExtResource("1_6vh8m")
+global_damage_modifire = 1.0
+global_cooldown_modifire = 1.0
+global_scale_modifire = 1.0
+metadata/_custom_type_script = "uid://cgrq1jmuupyqk"

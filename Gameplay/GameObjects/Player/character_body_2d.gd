@@ -4,9 +4,6 @@ extends CharacterBody2D
 
 @onready var anim_tree : AnimationTree = $AnimationTree
 
-@onready var bat_swing : Node2D = $Node2D_BatSwing
-@onready var bat_swing_sprite : AnimatedSprite2D = $Node2D_BatSwing/AnimatedSprite2D
-
 #var inited : bool = false
 
 func update_animation_parametrs(velocity_dir : Vector2) -> void:
@@ -26,7 +23,6 @@ var link_number_self : int = 1
 
 func _ready() -> void:
 	anim_tree.active = true
-	bat_swing_sprite.play("swing")
 
 func init(game_session : Node2D) -> void:
 	init_on_minimap(game_session.minimap)
@@ -44,50 +40,6 @@ func _physics_process(_delta: float) -> void:
 	update_animation_parametrs(velocity_dir)	
 	move_and_slide()
 	move_on_minimap()
-	
-	# Turn attack animation to mouse
-	var current_mouse_position = get_global_mouse_position()	
-	var controlled_object_pos_on_screen = position
-	var vector_to_mouse = current_mouse_position-controlled_object_pos_on_screen
-	var degrees_to_mouse = _myCalculateAngle(vector_to_mouse.y,vector_to_mouse.x)*180.0/PI-45/PI
-	if 	degrees_to_mouse > 180.0 :
-		bat_swing.scale.x = -1.0
-		bat_swing.rotation_degrees = degrees_to_mouse - 180.0
-	else:
-		bat_swing.scale.x = 1.0
-		bat_swing.rotation_degrees = degrees_to_mouse		
-
-	
-	## Подгоняем камеру. Вопрос - а что с движением самой камеры от кнопок?
-	#if !ignore_input:
-		#camera_link.set_camera_position(player_ship_node.position)
-	#
-	##Миникарта
-	#player_ship_node.move_on_minimap()		
-	
-# Почему-то atan2 возвращает угол: 0 270 -90,
-#	сделал свой расчет угла: 0 360
-static func _myCalculateAngle(y : float, x : float) -> float:
-	var angle : float = 0.0
-	if x == 0.0:
-		angle = -PI/2.0
-		#if y == 0.0:
-		#	angle = 0.0
-		#elif y > 0.0:
-		#	angle = PI/2.0
-		#else:
-		#	angle = PI/2.0
-	else:
-		angle = atan(y/x)
-		if x < 0.0:
-			if y > 0.0:
-				angle += PI
-			elif y < 0.0:
-				# angle -= PI
-				angle += PI
-			else:
-				angle = PI
-	return angle
 
 #region Миникарта, отображение
 # Картинка корабля игрока для миникарты 
@@ -169,31 +121,17 @@ func _on_area_2d_hurt_box_body_exited(body: Node2D) -> void:
 		
 #endregion
 
-#region Damaging monsters
-
-func _on_area_2d_hit_box_body_entered(body: Node2D) -> void:
-	body.get_hit(40.0 # Damage
-	,0.2 # Konckback time
-	,100.0) # Knockback speed, double bug speed
-	
-@onready var bat_sprite : AnimatedSprite2D = $Node2D_BatSwing/AnimatedSprite2D
-@onready var bat_hit_box : Area2D = $Node2D_BatSwing/Area2D_HitBox
-	
-func _on_animated_sprite_2d_frame_changed() -> void:
-	if bat_sprite.frame == 1:
-		bat_hit_box.monitoring = true
-	else:
-		bat_hit_box.monitoring = false
-		
-#endregion
-
 #region Gathering powerups
 
 @onready var exp_weapon_system : Node2D = $Node2D_ExpWeaponSystem
 
+func upgrade_chosen(variant) -> void:
+	exp_weapon_system.upgrade_chosen(variant)
+
 func  init_exp_weapon_system(game_session : Node2D) -> void:
 	exp_weapon_system.exp_bar_link = game_session.exp_bar_node
-
+	exp_weapon_system.init(game_session.skills_ui_arr, game_session.passives_ui_arr,  game_session.exp_bar_node)
+	
 func _on_area_2d_gather_powerups_body_entered(body: Node2D) -> void:
 	body.powerup_gathered = true
 	
