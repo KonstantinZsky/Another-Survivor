@@ -23,13 +23,12 @@
  <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/save_menu.png" alt="qr"/>
 </picture>
 ### Миникарта
-В играх типа "Vampire Survivors" миникарты обычно нет, но зато она есть в огромном количестве других игр, поэтому я ее реализовал.
 В режиме паузы можно двигать камеру (в том числе мышкой по миникарте), рамка камеры отображается на миникарте как и противники и игрок. Так же отображаются пропорции игрового поля.<br/>
 <picture>
  <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/minimap.png" alt="qr"/>
 </picture>
 ### Реализованные игровые механики
-Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока. Урон и здоровье игрока и противников, анимация движения, покоя, анимация получения урона, анимация удара игрока. Анимации реализованы при помощи **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**. **Object pool** для противников и усилений. Дроп опыта, накопление опыта. Первая итерация системы уровней.
+Спавн противников, так чтобы не застревали в стенах. Простейший ИИ - просто идут на игрока. Урон и здоровье игрока и противников, анимация движения, покоя, анимация получения урона, анимация удара игрока. Анимации реализованы при помощи **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**. **Object pool** для противников и усилений. Дроп опыта, накопление опыта. Система повышения уровней, пассивные способности, сохранение уровня.
 ### Использованные бесплатные ассеты
 https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack<br/>
 https://opengameart.org/content/outdoor-tileset-0<br/>
@@ -38,7 +37,7 @@ https://itch.io/queue/c/733269/godot-pixel-fonts?game_id=718254<br/>
 https://opengameart.org/content/browserquest-sprites-and-tiles<br/>
 https://github.com/mozilla/BrowserQuest<br/>
 ## TO DO
-- Улучшить систему повышения уровня игрока.
+- Новое оружие.
 - Новые противники, повышение сложности с течением времени, счетчик времени игровой сессии.
-- Босс с состояниями реализованными через state machine. У меня уже есть опыт использования state machine<br/>
+- Босс с состояниями реализованными через state machine.<br/>
 и т.д.

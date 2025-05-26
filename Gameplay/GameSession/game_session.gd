@@ -98,8 +98,9 @@ func _ready() -> void:
 	# Loading objects if it is load
 	if SceneControl._it_is_load:
 		camera.position = SaveBaseInfo._save_to_load.camera.position
-		player_link.position = SaveBaseInfo._save_to_load.player.position		
-				
+		#player_link.position = SaveBaseInfo._save_to_load.player.position		
+		player_link.on_load_game(SaveBaseInfo._save_to_load.player)	
+			
 		# Корабль игрока всегда может быть целью, у него номер 1
 		SaveBaseInfo.add_linkable(player_link)
 			
@@ -233,7 +234,8 @@ func make_save(save_name:String,resave:bool):
 	var gameObjects : Array[BaseSaveObject] = []
 	get_tree().call_group("to_save","on_save_game",gameObjects)
 	SaveBaseInfo._save_to_load.gameObjects = gameObjects		
-	SaveBaseInfo._save_to_load.player.position = player_link.position
+	#SaveBaseInfo._save_to_load.player.position = player_link.position
+	player_link.on_save_game(SaveBaseInfo._save_to_load.player)
 
 	SaveBaseInfo._save_light_data.size = game_field_size
 	SaveBaseInfo._save_light_data.save_name = file_name

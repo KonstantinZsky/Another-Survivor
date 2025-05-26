@@ -28,6 +28,14 @@ func init(game_session : Node2D) -> void:
 	init_on_minimap(game_session.minimap)
 	init_exp_weapon_system(game_session)
 
+func on_save_game(player_save) -> void:
+	player_save.position = position
+	player_save.weapon_exp_system = exp_weapon_system.on_save_game()
+
+func on_load_game(player_save) -> void:
+	position = player_save.position
+	exp_weapon_system.on_load_game(player_save.weapon_exp_system)
+
 func _physics_process(_delta: float) -> void:
 
 	var velocity_dir : Vector2 = Input.get_vector("ui_left","ui_right","ui_up","ui_down")

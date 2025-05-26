@@ -41,13 +41,43 @@ func init(skill_slots : Array, passive_slots : Array,  e_b_l : ProgressBar) -> v
 	free_skills.pop_front()
 	add_skill_to_slot(0, 0)
 
-# loading level state
-func on_load() -> void:
-	# save load weapon1,passive1 e.t.c. with text names of export params
-	# and number of skill slot and passive slot
-	# current_level current_exp exp_per_level_cur
-	# Update global modifires, make all updates after loading
-	pass 
+func on_save_game() -> PlayerSave_ExpWeaponSystem:
+	var save_res : PlayerSave_ExpWeaponSystem = PlayerSave_ExpWeaponSystem.new()
+	for i in skill_slots_arr.size():
+		save_res.skill_slots_arr.push_back(skill_slots_arr[i].occupied) 
+	for i in passive_slots_arr.size():
+		save_res.passive_slots_arr.push_back(passive_slots_arr[i].occupied) 
+	save_res.chosen_skills = chosen_skills	
+	save_res.chosen_passives = chosen_passives
+	save_res.free_skills = free_skills
+	save_res.free_passives = free_passives
+	save_res.exp_per_level_cur = exp_per_level_cur
+	save_res.current_exp = current_exp
+	save_res.current_level = current_level
+	return save_res
+
+func on_load_game(save_res:PlayerSave_ExpWeaponSystem) -> void:
+	for i in save_res.skill_slots_arr.size():
+		skill_slots_arr[i].occupied = save_res.skill_slots_arr[i]
+	for i in save_res.passive_slots_arr.size():
+		passive_slots_arr[i].occupied = save_res.passive_slots_arr[i]
+	chosen_skills = save_res.chosen_skills	
+	chosen_passives = save_res.chosen_passives
+	for i in chosen_passives.size():
+		passive_slots_arr[i].level_n_node.text = str(chosen_passives[i].lvl)
+		passive_slots_arr[i].icon_node.texture = all_passives[chosen_passives[i].n].picture	
+		all_passives[chosen_passives[i].n].current_level = chosen_passives[i].lvl
+	for i in chosen_skills.size():
+		skill_slots_arr[i].level_n_node.text = str(chosen_skills[i].lvl)
+		skill_slots_arr[i].icon_node.texture = all_skills[chosen_skills[i].n].stats.picture
+		all_skills[chosen_skills[i].n].stats.current_level = chosen_skills[i].lvl
+		all_skills[chosen_skills[i].n].update_weapon_stats()		
+	free_skills = save_res.free_skills
+	free_passives = save_res.free_passives
+	exp_per_level_cur = save_res.exp_per_level_cur
+	current_exp = save_res.current_exp
+	current_level = save_res.current_level
+	exp_bar_link.value = current_exp
 
 var exp_leftover : float = 0.0
 
