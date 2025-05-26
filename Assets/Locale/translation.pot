@@ -132,6 +132,10 @@ msgid ""
 msgstr ""
 
 #: Gameplay/GameSession/GameSession.tscn
+msgid "1"
+msgstr ""
+
+#: Gameplay/GameSession/GameSession.tscn
 msgid ""
 "P - pase game (free camera)\n"
 "Esq - menu"
@@ -157,4 +161,16 @@ msgstr ""
 
 #: Gameplay/GameSession/GameSession.tscn
 msgid "To menu\n"
+msgstr ""
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "LevelUP!"
+msgstr ""
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "Choose new ability:"
+msgstr ""
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "new!"
 msgstr ""

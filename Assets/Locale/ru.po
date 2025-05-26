@@ -137,6 +137,10 @@ msgstr ""
 "Название файла:\n"
 
 #: Gameplay/GameSession/GameSession.tscn
+msgid "1"
+msgstr ""
+
+#: Gameplay/GameSession/GameSession.tscn
 msgid ""
 "P - pase game (free camera)\n"
 "Esq - menu"
@@ -167,3 +171,15 @@ msgstr "Игра проиграна"
 #: Gameplay/GameSession/GameSession.tscn
 msgid "To menu\n"
 msgstr "В меню\n"
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "LevelUP!"
+msgstr "ЛевелАП!"
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "Choose new ability:"
+msgstr "Выберите новую способность:"
+
+#: Gameplay/GameSession/GameSession.tscn
+msgid "new!"
+msgstr "Новое!"

@@ -5,7 +5,7 @@ extends Node2D
 var cur_damage  : float = 40.0
 var cur_scale : float = 1.0
 
-@export var bat_stats : WeaponStatsClass
+@export var stats : WeaponStatsClass
 
 # Bat swing always active, its base weapon
 func _ready() -> void:
@@ -52,15 +52,15 @@ static func _myCalculateAngle(y : float, x : float) -> float:
 #region Damaging monsters
 
 func set_new_level( n_l : int ) -> void:
-	bat_stats.current_level = n_l
+	stats.current_level = n_l
 	update_weapon_stats()
 
 func update_weapon_stats() -> void:
-	bat_swing_sprite.speed_scale = bat_stats.get_speed()
-	var scale = bat_stats.get_scale()
+	bat_swing_sprite.speed_scale = stats.get_speed()
+	var scale = stats.get_scale()
 	self.scale.x = scale
 	self.scale.y = scale
-	cur_damage = bat_stats.get_damage()
+	cur_damage = stats.get_damage()
 
 func _on_area_2d_hit_box_body_entered(body: Node2D) -> void:
 	body.get_hit(cur_damage # 40.0 # Damage

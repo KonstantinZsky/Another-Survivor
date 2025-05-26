@@ -9,6 +9,9 @@ extends Resource
 @export var global_cooldown_modifire_per_level : float = 1.0
 @export var global_scale_modifire_per_level  : float = 1.0
 
+@export_multiline var description_en : String = ""
+@export_multiline var description_ru : String = ""
+
 func _init(damage : float = 1.0, cooldown : float = 1.0, scale : float = 1.0) -> void:
 	global_damage_modifire_per_level = damage
 	global_cooldown_modifire_per_level = cooldown

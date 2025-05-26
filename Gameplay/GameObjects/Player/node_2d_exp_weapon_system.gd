@@ -138,8 +138,8 @@ func get_3_up_chose() -> Array:
 			all_variants.push_back({type = SceneControl.UpgradesTypes.NEW_ABILITY,
 				position = free_skill_copy[i],
 				level = 1,
-				picture = all_skills[free_skill_copy[i]].bat_stats.picture})
-	
+				picture = all_skills[free_skill_copy[i]].stats.picture,
+				description = Settings.translate_to_local(all_skills[free_skill_copy[i]].stats.description_en,all_skills[free_skill_copy[i]].stats.description_ru)})
 	# Check if there is free passive slots
 	var free_passive_slot = get_free_passive_slot()
 	if free_passive_slot >= 0 :	
@@ -147,7 +147,8 @@ func get_3_up_chose() -> Array:
 			all_variants.push_back({type = SceneControl.UpgradesTypes.NEW_PASSIVE,
 				position = free_passive_copy[i],
 				level = 1,
-				picture = all_passives[free_passive_copy[i]].picture})
+				picture = all_passives[free_passive_copy[i]].picture,
+				description = Settings.translate_to_local(all_passives[free_passive_copy[i]].description_en,all_passives[free_passive_copy[i]].description_ru)})
 	
 	# possible skill lvlups
 	for i in chosen_skills_copy.size():
@@ -155,7 +156,8 @@ func get_3_up_chose() -> Array:
 			all_variants.push_back({type = SceneControl.UpgradesTypes.ABILITY_LVLUP,
 				position = chosen_skills_copy[i].n,
 				level = chosen_skills_copy[i].lvl+1, # cuz its lvlup
-				picture = all_skills[chosen_skills_copy[i].n].bat_stats.picture})
+				picture = all_skills[chosen_skills_copy[i].n].stats.picture,
+				description = Settings.translate_to_local(all_skills[chosen_skills_copy[i].n].stats.description_en,all_skills[chosen_skills_copy[i].n].stats.description_ru)})
 	
 	# possible passive lvlups
 	for i in chosen_passives_copy.size():
@@ -163,7 +165,8 @@ func get_3_up_chose() -> Array:
 			all_variants.push_back({type = SceneControl.UpgradesTypes.PASSIVE_LVLUP,
 				position = chosen_passives_copy[i].n,
 				level = chosen_passives_copy[i].lvl+1,
-				picture = all_passives[chosen_passives_copy[i].n].picture})				
+				picture = all_passives[chosen_passives_copy[i].n].picture,
+				description = Settings.translate_to_local(all_passives[chosen_passives_copy[i].n].description_en,all_passives[chosen_passives_copy[i].n].description_ru)})			
 
 	# now need randomly choose 3
 	var variants_q = all_variants.size()
@@ -198,7 +201,7 @@ func get_3_up_chose() -> Array:
 func add_skill_to_slot(skill_node_n : int, slot_n : int) -> void:
 	var skill_node = all_skills[skill_node_n]
 	var slot = skill_slots_arr[slot_n]
-	slot.icon_node.texture = skill_node.bat_stats.picture
+	slot.icon_node.texture = skill_node.stats.picture
 	slot.level_n_node.text = "1"
 	slot.occupied = true
 	chosen_skills.push_back({n = skill_node_n, lvl = 1})

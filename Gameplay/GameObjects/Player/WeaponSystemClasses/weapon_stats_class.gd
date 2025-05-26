@@ -9,6 +9,9 @@ extends Resource
 @export var percent_damage_increase_with_level : float = 1.05
 #@export var global_damage_modifire : float = 0.0
 
+@export_multiline var description_en : String = ""
+@export_multiline var description_ru : String = ""
+
 func get_damage() -> float:
 	var mod = (percent_damage_increase_with_level - 1.0)*float(current_level)
 	var val = base_damage * (1+mod) * link_to_global_modifires.global_damage_modifire

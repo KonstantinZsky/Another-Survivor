@@ -339,6 +339,10 @@ picture = ExtResource("6_nm1h5")
 global_damage_modifire_per_level = 1.05
 global_cooldown_modifire_per_level = 1.0
 global_scale_modifire_per_level = 1.0
+description_en = "+ Damage
+Increases damage by 5% per level"
+description_ru = "+ Урон
+Повышает урон на 5% за уровень"
 metadata/_custom_type_script = "uid://dxsg6rd51oc4w"
 
 [sub_resource type="Resource" id="Resource_gd5vw"]
@@ -348,6 +352,10 @@ picture = ExtResource("8_2k83u")
 global_damage_modifire_per_level = 1.0
 global_cooldown_modifire_per_level = 1.05
 global_scale_modifire_per_level = 1.0
+description_en = "+ Speed
+Increases attack speed by 5% per level"
+description_ru = "+ Скорость
+Повышает скорость атака на 5% за уровень"
 metadata/_custom_type_script = "uid://dxsg6rd51oc4w"
 
 [sub_resource type="Resource" id="Resource_7jnoq"]
@@ -357,14 +365,22 @@ picture = ExtResource("9_7gbd8")
 global_damage_modifire_per_level = 1.0
 global_cooldown_modifire_per_level = 1.0
 global_scale_modifire_per_level = 1.05
+description_en = "+ Area
+Increases attack area by 5% per level"
+description_ru = "+ Область
+Увеличивает область атаки на 5% за уровень"
 metadata/_custom_type_script = "uid://dxsg6rd51oc4w"
 
-[sub_resource type="Resource" id="Resource_iao5o"]
+[sub_resource type="Resource" id="Resource_nm1h5"]
 script = ExtResource("7_1yyat")
-current_level = 1
+current_level = 0
 picture = ExtResource("8_pkw21")
 base_damage = 40.0
 percent_damage_increase_with_level = 1.05
+description_en = "Bat swing
++ 5 % damage, attack speed and area per level"
+description_ru = "Удар битой
++ 5% урона, скорости атаки и области атаки за уровень"
 percent_speed_increase_with_level = 1.05
 percent_scale_increase_with_level = 1.05
 link_to_global_modifires = ExtResource("7_iao5o")
@@ -487,7 +503,7 @@ weapon_global_modifires = ExtResource("7_iao5o")
 
 [node name="Node2D_BatSwing" type="Node2D" parent="Node2D_ExpWeaponSystem"]
 script = ExtResource("6_ce8gb")
-bat_stats = SubResource("Resource_iao5o")
+stats = SubResource("Resource_nm1h5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_ExpWeaponSystem/Node2D_BatSwing"]
 z_index = 2
