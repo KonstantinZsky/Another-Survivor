@@ -26,6 +26,7 @@ func reset() -> void:
 	self.set_physics_process(false)
 	self.visible = false
 	self.position = Vector2(-2000.0,-2000.0)
+	powerup_gathered = false
 
 func update_animation_parametrs() -> void:
 	anim_tree["parameters/blend_position"] = dir_to_player.x
@@ -45,7 +46,6 @@ func _physics_process(_delta: float) -> void:
 # Картинка корабля игрока для миникарты 
 var minimap_picture : CompressedTexture2D = load("res://Gameplay/GameObjects/Powerups/Expirience/expirience_icon.png")
 var minimap_link : Control = null
-# Ссылка на корабль на миникарте, чтобы знать что двигать
 var minimap_node_link : Node2D = null
 
 func init_on_minimap(map_link : Control) -> void:

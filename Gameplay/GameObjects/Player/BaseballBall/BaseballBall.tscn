@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://17f3jpjhuadd"]
+
+[ext_resource type="Texture2D" uid="uid://g50snltsqciv" path="res://Assets/Pictures/Characters/Weapons/weapon-basebasell.png" id="1_0jusx"]
+[ext_resource type="Script" uid="uid://bbgj8wdx3qf0w" path="res://Gameplay/GameObjects/Player/BaseballBall/baseball_ball.gd" id="1_l6k0v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6k0v"]
+radius = 6.0
+
+[node name="BaseballBall" type="Node2D"]
+script = ExtResource("1_l6k0v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Area2D_HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_HitBox"]
+shape = SubResource("CircleShape2D_l6k0v")
+
+[node name="Weapon-basebasell" type="Sprite2D" parent="Area2D_HitBox"]
+texture = ExtResource("1_0jusx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D_HitBox" to="." method="_on_area_2d_hit_box_body_entered"]

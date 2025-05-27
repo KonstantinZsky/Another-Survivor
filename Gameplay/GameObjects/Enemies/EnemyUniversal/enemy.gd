@@ -55,7 +55,8 @@ func _set_monster_health(new_h : float) -> void:
 
 func get_hit(dmg : float, knockback_t : float, knockback_s : float) -> void:
 	monster_health = monster_health - dmg
-	if monster_health < 0:
+	# Check physic process if it is a ball hit
+	if monster_health < 0 && (self.is_physics_processing()):
 		# Death animation??
 		spawn_expirience()
 		SceneControl.game_session.enemies_pool.kill_enemy(self)

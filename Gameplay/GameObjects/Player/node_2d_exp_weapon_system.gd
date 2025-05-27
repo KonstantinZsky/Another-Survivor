@@ -12,10 +12,10 @@ var passive_slots_arr : Array = []
 var chosen_skills : Array = []
 var chosen_passives : Array = []
 
-var free_skills : Array = [0]
+var free_skills : Array = [0,1,2]
 var free_passives : Array = [0,1,2]
 
-@onready var all_skills : Array = [weapon1]
+@onready var all_skills : Array = [weapon1,weapon2,weapon3]
 @onready var all_passives : Array = [passive1,passive2,passive3]
 
 @export var max_skill_level : int = 7
@@ -23,6 +23,8 @@ var free_passives : Array = [0,1,2]
 @export var exp_per_level_base : float = 100.0
 @export var percent_exp_per_level_increase : float = 1.2
 @export var weapon1 : Node2D
+@export var weapon2 : Node2D
+@export var weapon3 : Node2D
 @export var passive1 : PassiveStatsClass
 @export var passive2 : PassiveStatsClass
 @export var passive3 : PassiveStatsClass
@@ -61,8 +63,8 @@ func on_load_game(save_res:PlayerSave_ExpWeaponSystem) -> void:
 		skill_slots_arr[i].occupied = save_res.skill_slots_arr[i]
 	for i in save_res.passive_slots_arr.size():
 		passive_slots_arr[i].occupied = save_res.passive_slots_arr[i]
-	chosen_skills = save_res.chosen_skills	
-	chosen_passives = save_res.chosen_passives
+		chosen_skills = save_res.chosen_skills	
+		chosen_passives = save_res.chosen_passives
 	for i in chosen_passives.size():
 		passive_slots_arr[i].level_n_node.text = str(chosen_passives[i].lvl)
 		passive_slots_arr[i].icon_node.texture = all_passives[chosen_passives[i].n].picture	
@@ -70,8 +72,8 @@ func on_load_game(save_res:PlayerSave_ExpWeaponSystem) -> void:
 	for i in chosen_skills.size():
 		skill_slots_arr[i].level_n_node.text = str(chosen_skills[i].lvl)
 		skill_slots_arr[i].icon_node.texture = all_skills[chosen_skills[i].n].stats.picture
-		all_skills[chosen_skills[i].n].stats.current_level = chosen_skills[i].lvl
-		all_skills[chosen_skills[i].n].update_weapon_stats()		
+		#all_skills[chosen_skills[i].n].stats.set_new_level = chosen_skills[i].lvl
+		all_skills[chosen_skills[i].n].set_new_level(chosen_skills[i].lvl)		
 	free_skills = save_res.free_skills
 	free_passives = save_res.free_passives
 	exp_per_level_cur = save_res.exp_per_level_cur
@@ -92,6 +94,15 @@ func upgrade_chosen(variant) -> void:
 	
 	match variant.type:
 		SceneControl.UpgradesTypes.NEW_ABILITY:
+			var skill_slot : int = get_free_skill_slot()
+			# delete from free
+			var indx = free_skills.find(int(variant.position))
+			free_skills.remove_at(indx)	
+			# update visuals
+			add_skill_to_slot(variant.position, skill_slot)
+			# apply
+			var node_link : Node2D = all_skills[variant.position]
+			node_link.set_new_level(1)
 			return # No new ability for now
 		SceneControl.UpgradesTypes.NEW_PASSIVE:
 			var passive_slot : int = get_free_passive_slot()
@@ -164,6 +175,7 @@ func get_3_up_chose() -> Array:
 	# Check if there is free skill slots
 	var free_skill_slot = get_free_skill_slot()
 	if free_skill_slot >= 0 :
+		# possible new skills
 		for i in free_skill_copy.size():
 			all_variants.push_back({type = SceneControl.UpgradesTypes.NEW_ABILITY,
 				position = free_skill_copy[i],
@@ -173,6 +185,7 @@ func get_3_up_chose() -> Array:
 	# Check if there is free passive slots
 	var free_passive_slot = get_free_passive_slot()
 	if free_passive_slot >= 0 :	
+		# possible new passives
 		for i in free_passive_copy.size():
 			all_variants.push_back({type = SceneControl.UpgradesTypes.NEW_PASSIVE,
 				position = free_passive_copy[i],
