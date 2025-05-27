@@ -48,6 +48,7 @@ var player : PlayerSave = PlayerSave.new()
 var save_template: Dictionary = {
 	"save_name": "",
 	"save_time": "",
+	"game_time": 0.0,
 	"bg_picture": 0,
 	"level" : "",
 	"size" : Vector2(0, 0),

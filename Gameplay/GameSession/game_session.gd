@@ -52,6 +52,9 @@ var game_field_size : Vector2 = Vector2(0.0,0.0)
 	},
 ]
 
+# Game session timer
+var game_time : float = 0.0	
+
 func _ready() -> void:
 	
 	var level_to_Load : int = 0
@@ -59,6 +62,7 @@ func _ready() -> void:
 	# Need to load/select level first
 	if SceneControl._it_is_load:	
 		level_to_Load = int(SaveBaseInfo._save_light_data.level)
+		game_time = SaveBaseInfo._save_light_data.game_time
 	else:
 		level_to_Load = int(Settings.settings_global.new_level_number)					
 
@@ -126,6 +130,8 @@ func _ready() -> void:
 	
 	# Show on minimap if in pause
 	player_link._physics_process(0.0)
+	# Show timer if in pause
+	self._physics_process(0.0)
 
 @onready var new_level_panel : CanvasLayer = $CanvasLayer_NewLevel
 func new_level(variants : Array) -> void:
@@ -138,6 +144,24 @@ func upgrade_chosen(variant) -> void:
 
 func game_lost() -> void:
 	game_lost_panel.game_lost()
+
+#region Game timer
+
+@onready var seconds_label : Label = $CanvasLayer/HBoxContainer_Time/Label_Seconds
+@onready var minutes_label : Label = $CanvasLayer/HBoxContainer_Time/Label_Minutes
+
+func _physics_process(delta: float) -> void:
+	game_time = game_time + delta
+	var minutes : int = int(game_time/60.0)
+	var seconds : int = int(fmod(game_time, 60))
+	var addition : String = ""
+	if seconds<10: addition = "0"
+	seconds_label.text = addition + str(seconds)
+	if minutes<10: addition = "0" 
+	else: addition = ""
+	minutes_label.text = addition + str(minutes)
+	
+#endregion
 
 #region Minimap
 
@@ -217,7 +241,7 @@ func _on_control_gui_catch_gui_input(event):
 		minimap._set_camera_coords_from_minimap(new_frame_pos)	
 			
 #endregion
-	
+
 func make_save(save_name:String,resave:bool):
 	
 	#var file_name = "Save" + str(Logging.getIntTime())
@@ -239,6 +263,7 @@ func make_save(save_name:String,resave:bool):
 
 	SaveBaseInfo._save_light_data.size = game_field_size
 	SaveBaseInfo._save_light_data.save_name = file_name
+	SaveBaseInfo._save_light_data.game_time = game_time
 	SaveBaseInfo._save_light_data.save_time = current_time
 	SaveBaseInfo._save_light_data.level = Settings.settings_global.new_level_number
 	SaveBaseInfo._save_light_data.main_save_file = full_save_name
