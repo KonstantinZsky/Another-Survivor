@@ -37,7 +37,8 @@
 - Увеличение сложности со временем.
 <picture>
  <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_example.png" alt="qr"/>
-</picture>
+</picture> <br/>
+
 - Дроп опыта, накопление опыта. <br/>
 - Система повышения уровней, пассивные способности.<br/>
 - Все состояния сохраняются и загружаются.<br/>
