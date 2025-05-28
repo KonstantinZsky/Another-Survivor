@@ -45,6 +45,7 @@
 <picture>
  <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_levelup.png" alt="qr"/>
 </picture> <br/>
+
 ### Использованные бесплатные ассеты
 https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack<br/>
 https://opengameart.org/content/outdoor-tileset-0<br/>
