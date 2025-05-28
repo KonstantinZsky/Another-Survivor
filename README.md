@@ -29,7 +29,6 @@
 </picture>
 ### Реализованные игровые механики
 - Спавн противников, так чтобы не застревали в стенах.<br/>
-- Простейший ИИ - просто идут на игрока.<br/>
 - Урон и здоровье игрока и противников.<br/>
 - Анимация движения, покоя, анимация получения урона, анимация удара игрока. Анимации реализованы при помощи **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**. <br/>
 - **Object pool** для противников и усилений.<br/>
@@ -46,6 +45,11 @@
  <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_levelup.png" alt="qr"/>
 </picture> <br/>
 
+- Flow field pathfinding - навигация противников для обхода препятствий и друг друга
+<picture>
+ <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/flow_field.png" alt="qr"/>
+</picture> <br/>
+
 ### Использованные бесплатные ассеты
 https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack<br/>
 https://opengameart.org/content/outdoor-tileset-0<br/>
@@ -54,6 +58,5 @@ https://itch.io/queue/c/733269/godot-pixel-fonts?game_id=718254<br/>
 https://opengameart.org/content/browserquest-sprites-and-tiles<br/>
 https://github.com/mozilla/BrowserQuest<br/>
 ## TO DO
-- Flow field pathing <br/>
 - Звук <br/>
 и т.д.
