@@ -37,7 +37,6 @@ https://itch.io/queue/c/733269/godot-pixel-fonts?game_id=718254<br/>
 https://opengameart.org/content/browserquest-sprites-and-tiles<br/>
 https://github.com/mozilla/BrowserQuest<br/>
 ## TO DO
-- Новое оружие.
-- Новые противники, повышение сложности с течением времени, счетчик времени игровой сессии.
-- Босс с состояниями реализованными через state machine.<br/>
+- Flow field pathing <br/>
+- Звук <br/>
 и т.д.

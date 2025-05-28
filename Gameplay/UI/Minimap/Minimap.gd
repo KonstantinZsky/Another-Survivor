@@ -23,7 +23,7 @@ var minimap_offset : Vector2 = Vector2(0.0,0.0)
 #	ссылку сохранит сам объект и будет для него вызывать функцию
 #	движения миникарты (ссылка на миникарту у объекта тоже будет)
 #		а зачем везде ссылки на миникарту? Чтобы без глобального модуля
-func add_sprite(sprite_texture : CompressedTexture2D, init_pos : Vector2, init_rot : float) -> Node2D:
+func add_sprite(sprite_texture : Texture2D, init_pos : Vector2, init_rot : float) -> Node2D:
 	var new_sprite = Sprite2D.new()
 	new_sprite.texture = sprite_texture
 	new_sprite.centered = true

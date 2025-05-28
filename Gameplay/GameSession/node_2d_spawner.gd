@@ -16,6 +16,10 @@ var enemies_to_spawn : int = 0
 var p_check : PhysicsPointQueryParameters2D = null
 var space_state : PhysicsDirectSpaceState2D = null
 
+@export var monster_levels : Array[EnemyClass]
+
+@export var monster_lvl_up_seconds : float = 20.0#120.0
+
 func _ready() -> void:
 	p_check = PhysicsPointQueryParameters2D.new()
 	p_check.collide_with_areas = true 
@@ -31,7 +35,13 @@ func _on_timer_spawn_attempt_timeout() -> void:
 	if get_world_2d().direct_space_state.intersect_point(p_check, 1):
 		return
 		
+	var cur_game_time : float = SceneControl.game_session.game_time
+	var enemy_level : int = int(cur_game_time / monster_lvl_up_seconds)
+	if enemy_level > (monster_levels.size()-1):
+		enemy_level = monster_levels.size()-1
+		
 	var new_bug_info = EnemyBugSave.new()
+	new_bug_info.stats = monster_levels[enemy_level]
 	new_bug_info.health = 100.0
 	new_bug_info.pos = p_check.position
 	SceneControl.game_session.enemies_pool.activate_enemy(new_bug_info)

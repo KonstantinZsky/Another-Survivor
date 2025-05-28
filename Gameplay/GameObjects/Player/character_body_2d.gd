@@ -31,10 +31,12 @@ func init(game_session : Node2D) -> void:
 func on_save_game(player_save) -> void:
 	player_save.position = position
 	player_save.weapon_exp_system = exp_weapon_system.on_save_game()
+	player_save.health = player_health 
 
-func on_load_game(player_save) -> void:
+func on_load_game(player_save : PlayerSave) -> void:
 	position = player_save.position
 	exp_weapon_system.on_load_game(player_save.weapon_exp_system)
+	player_health = player_save.health
 
 func _physics_process(_delta: float) -> void:
 

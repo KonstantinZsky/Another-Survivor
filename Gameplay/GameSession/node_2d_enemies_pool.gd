@@ -9,7 +9,7 @@ func init(game_session : Node2D) -> void:
 	for i in max_enemies:
 		var new_enemy : CharacterBody2D = enemy_scene.instantiate()
 		new_enemy.init_get_info(game_session)
-		new_enemy.hide_on_minimap()
+		#new_enemy.hide_on_minimap()
 		self.add_child(new_enemy)	
 		enemies_arr.push_back(new_enemy)
 		
@@ -25,7 +25,7 @@ func activate_enemy(data : EnemyBugSave) -> void:
 	enemy_to_activate._physics_process(0.0)
 
 	enemy_to_activate.set_physics_process(true)
-	enemy_to_activate.visible = true	
+	enemy_to_activate.visible = true
 
 func kill_enemy(enemy : Node2D) -> void:
 	enemy.reset()

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var anim_tree : AnimationTree = $AnimationTree
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
+@onready var sprite : Sprite2D = $Sprite2D
 
 var dir_to_player : Vector2 = Vector2(0.0,0.0)
 
@@ -54,7 +55,7 @@ func _set_monster_health(new_h : float) -> void:
 	health_bar.value = new_h
 
 func get_hit(dmg : float, knockback_t : float, knockback_s : float) -> void:
-	monster_health = monster_health - dmg
+	monster_health = monster_health - (stats.damage_resist * dmg)
 	# Check physic process if it is a ball hit
 	if monster_health < 0 && (self.is_physics_processing()):
 		# Death animation??
@@ -83,7 +84,8 @@ func spawn_expirience() -> void:
 
 #region Minimap
 # Картинка корабля игрока для миникарты 
-var minimap_picture : CompressedTexture2D = load("res://Gameplay/GameObjects/Enemies/EnemyUniversal/bug_minimap_icon.png")
+#var minimap_picture : CompressedTexture2D = load("res://Gameplay/GameObjects/Enemies/EnemyUniversal/bug_minimap_icon.png")
+var minimap_picture : Texture2D
 var minimap_link : Control = null
 # Ссылка на корабль на миникарте, чтобы знать что двигать
 var minimap_node_link : Node2D = null
@@ -110,13 +112,17 @@ func hide_on_minimap() -> void:
 # Gets all needed info from game session
 # Called on object loading, linking to game session objects
 func init_get_info(game_session : Node2D) -> void:
-	init_on_minimap(game_session.minimap)
+	pass
+	#init_on_minimap(game_session.minimap)
+
+var stats : EnemyClass
 
 func on_save_game(saved_data : Array[BaseSaveObject]) -> void:
 	var my_data = EnemyBugSave.new()
 	my_data.pos = global_position
 	#my_data.scene_path = scene_file_path
 	my_data.health = monster_health	
+	my_data.stats = stats
 	
 	saved_data.append(my_data)
 	
@@ -124,6 +130,16 @@ func init(saved_data : BaseSaveObject) -> void:
 	var my_data : EnemyBugSave = saved_data as EnemyBugSave
 	global_position = my_data.pos
 	monster_health = my_data.health
+	
+	stats = saved_data.stats
+	contact_damage_to_player = saved_data.stats.base_damage
+	move_speed = saved_data.stats.move_speed
+	sprite.texture = saved_data.stats.picture
+	sprite.hframes = saved_data.stats.animation_h_frames
+	sprite.vframes = saved_data.stats.animation_v_frames
+	minimap_picture = saved_data.stats.minimap_picture
+	init_on_minimap(SceneControl.game_session.minimap)
+	
 	
 func on_load_game_linking() -> void:
 	return
