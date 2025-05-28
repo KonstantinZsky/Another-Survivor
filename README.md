@@ -34,6 +34,7 @@
 - Анимация движения, покоя, анимация получения урона, анимация удара игрока. Анимации реализованы при помощи **AnimationTree**, **AnimationNodeStateMachine**, **BlendSpace1D**. <br/>
 - **Object pool** для противников и усилений.<br/>
 - Несколько видов противников и оружия. Реализовано при помощи **Resourse** файлов.
+- Увеличение сложности со временем.
 <picture>
  <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_example.png" alt="qr"/>
 </picture>
