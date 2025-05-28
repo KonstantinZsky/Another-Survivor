@@ -10,6 +10,9 @@ var dir_to_player : Vector2 = Vector2(0.0,0.0)
 @export var exp_spawn_range : float = 20.0
 @export var contact_damage_to_player : float = 10.0
 
+var flow_field_dir : Vector2 = Vector2(0.0,0.0)
+var have_flow_field_direction : bool = false
+
 # For object pooling
 func _ready() -> void:
 	self.set_physics_process(false)
@@ -33,7 +36,10 @@ func _physics_process(_delta: float) -> void:
 		velocity = opposite_dir * knockback_speed
 		move_and_slide()		
 	else:
-		velocity = dir_to_player * move_speed
+		if have_flow_field_direction:
+			velocity = flow_field_dir * move_speed
+		else:
+			velocity = dir_to_player * move_speed
 		move_and_slide()
 	move_on_minimap()
 	

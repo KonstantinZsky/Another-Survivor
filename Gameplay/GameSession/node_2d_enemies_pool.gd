@@ -20,6 +20,7 @@ func activate_enemy(data : EnemyBugSave) -> void:
 
 	enemy_to_activate.init(data)
 	enemy_to_activate.add_to_group("to_save")
+	enemy_to_activate.add_to_group("active_enemies")
 	# Show on minimap if in pause
 	enemy_to_activate.show_on_minimap()
 	enemy_to_activate._physics_process(0.0)
@@ -27,7 +28,11 @@ func activate_enemy(data : EnemyBugSave) -> void:
 	enemy_to_activate.set_physics_process(true)
 	enemy_to_activate.visible = true
 
+func get_active_enemies() -> Array:
+	return get_tree().get_nodes_in_group("active_enemies")
+
 func kill_enemy(enemy : Node2D) -> void:
 	enemy.reset()
 	enemy.remove_from_group("to_save")
+	enemy.remove_from_group("active_enemies")
 	enemies_arr.push_back(enemy)

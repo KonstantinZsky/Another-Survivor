@@ -55,6 +55,8 @@ var game_field_size : Vector2 = Vector2(0.0,0.0)
 # Game session timer
 var game_time : float = 0.0	
 
+@onready var flow_field : Node = $FlowFieldManager
+
 func _ready() -> void:
 	
 	var level_to_Load : int = 0
@@ -69,13 +71,20 @@ func _ready() -> void:
 	match level_to_Load:
 		1:
 			game_field_size = SceneControl.lvl1_game_field_size
-			backgroun_node.add_child(back_level1.instantiate())
+			var map_inst = back_level1.instantiate()
+			backgroun_node.add_child(map_inst)
 			Settings.settings_global.new_level_number = 1
+			flow_field.tile_map = map_inst.get_layer_link()
 		2:
 			game_field_size = SceneControl.lvl2_game_field_size
-			backgroun_node.add_child(back_level2.instantiate())	
-			Settings.settings_global.new_level_number = 2					
-					
+			var map_inst = back_level2.instantiate()
+			backgroun_node.add_child(map_inst)	
+			Settings.settings_global.new_level_number = 2
+			flow_field.tile_map = map_inst.get_layer_link()					
+	
+	flow_field.my_ready = true
+	#flow_field.show_debug_arrows = true
+	
 	SceneControl.player_link = player_link
 	
 	minimap.game_field_size = game_field_size
