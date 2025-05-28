@@ -28,10 +28,6 @@
  <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/minimap.png" alt="qr"/>
 </picture>
 ### Реализованные игровые механики
-<picture>
- <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_example.png" alt="qr"/>
-</picture>
-
 - Спавн противников, так чтобы не застревали в стенах.<br/>
 - Простейший ИИ - просто идут на игрока.<br/>
 - Урон и здоровье игрока и противников.<br/>
@@ -39,12 +35,14 @@
 - **Object pool** для противников и усилений.<br/>
 - Несколько видов противников и оружия. Реализовано при помощи **Resourse** файлов.
 <picture>
- <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_levelup.png" alt="qr"/>
-</picture> <br/>
-
+ <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_example.png" alt="qr"/>
+</picture>
 - Дроп опыта, накопление опыта. <br/>
 - Система повышения уровней, пассивные способности.<br/>
 - Все состояния сохраняются и загружаются.<br/>
+<picture>
+ <img width="600px" src="https://github.com/KonstantinZsky/Another-Survivor/blob/main/Readme%20pics/game_levelup.png" alt="qr"/>
+</picture> <br/>
 ### Использованные бесплатные ассеты
 https://livingtheindie.itch.io/roguelite-survivor-asset-free-pack<br/>
 https://opengameart.org/content/outdoor-tileset-0<br/>
